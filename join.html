@@ -4,6 +4,17 @@
 <meta name="description" content="Take the first breath toward Xhale: seven nights on Gili Air, June 16 to 23, 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>
+  (function(w, d, t, h, s, n) {
+    w.FlodeskObject = n;
+    var fn = function() { (w[n].q = w[n].q || []).push(arguments); };
+    w[n] = w[n] || fn;
+    var f = d.getElementsByTagName(t)[0];
+    var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+    var sm = d.createElement(t); sm.async = true; sm.type = 'module'; sm.src = h + s + '.mjs' + v; f.parentNode.insertBefore(sm, f);
+    var sn = d.createElement(t); sn.async = true; sn.noModule = true; sn.src = h + s + '.js' + v; f.parentNode.insertBefore(sn, f);
+  })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+</script>
 <style>
 :root {
   --ink: #0F2A33;        /* deep water, all text */
@@ -75,49 +86,18 @@ a { color: var(--lagoon); }
   </aside>
   <main class="jp-main">
     <a class="back" href="./">&larr; Back to Xhale</a>
-    <form class="iform" id="iform" novalidate aria-labelledby="iform-h">
-      <h2 id="iform-h">Tell us a little about you</h2>
-      <p class="ihint">There are no right answers, and anything not marked required is yours to skip.</p>
-      <div class="irow">
-        <label>First name <span class="req">required</span><input name="first" autocomplete="given-name" required></label>
-        <label>Last name<input name="last" autocomplete="family-name"></label>
-      </div>
-      <label>Email <span class="req">required</span><input name="email" type="email" autocomplete="email" required></label>
-      <label>What drew you to Xhale?<textarea name="drew" rows="2"></textarea></label>
-      <label>What are you hoping to feel, or take home with you?<textarea name="hope" rows="2"></textarea></label>
-      <label>What's one thing you'd love to set down, even for a week?<textarea name="setdown" rows="2"></textarea></label>
-      <fieldset><legend>Room, if you know yet</legend>
-        <label class="ichk"><input type="radio" name="room" value="shared"> Shared</label>
-        <label class="ichk"><input type="radio" name="room" value="private"> Private</label>
-        <label class="ichk"><input type="radio" name="room" value="unsure" checked> Not sure yet</label>
-      </fieldset>
-      <label>How did you hear about us?<select name="heard"><option value="">Choose one</option><option>Jess or Jess Breathe &amp; Flow</option><option>Aleisha or Build the Balance</option><option>A friend</option><option>Instagram</option><option>LinkedIn</option><option>Somewhere else</option></select></label>
-      <p class="ipriv">What you share here is read only by Jess and Aleisha. We'll never share it.</p>
-      <p class="ierr" id="iform-err" role="alert"></p>
-      <button class="btn" type="submit">Send</button>
-      <p class="itbd"><span class="tbd">Connects to our email tool once we pick one</span></p>
-    </form>
-    <div class="ithanks" id="iform-thanks" hidden tabindex="-1">
-      <h2>Thank you for sharing this with us.</h2>
-      <p>You're on the list. One of us will reach out personally, and you'll hear first when reservations open.</p>
+    <div class="iform">
+      <h2>Join the Xhale list</h2>
+      <p class="ihint">Share your name and email, and we'll reach out personally. You'll hear first when reservations open, and hold a place in the founding circle.</p>
+      <div id="fd-form-6ae6504e4d7a5e2181ba8041"></div>
+      <script>
+        window.fd('form', {
+          formId: '6ae6504e4d7a5e2181ba8041',
+          containerEl: '#fd-form-6ae6504e4d7a5e2181ba8041'
+        });
+      </script>
+      <p class="ipriv">What you share is read only by Jess and Aleisha. We'll never share it.</p>
     </div>
   </main>
 </div>
-<script>
-// Paste the Google Apps Script web app URL here to send answers to the Xhale Interest List sheet.
-var SHEET_URL = '';
-(function(){
-  var f=document.getElementById('iform'); if(!f) return;
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var err=document.getElementById('iform-err'), first=f.first.value.trim(), email=f.email.value.trim();
-    if(!first||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent='Please add your first name and a valid email so we can reach you.'; (first?f.email:f.first).focus(); return; }
-    err.textContent='';
-    var data={}; new FormData(f).forEach(function(v,k){ data[k]=v; });
-    window.dispatchEvent(new CustomEvent('xhale-interest',{detail:data}));
-    if (SHEET_URL) { try { fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) }); } catch (x) {} }
-    f.hidden=true; var t=document.getElementById('iform-thanks'); t.hidden=false; t.focus();
-  });
-})();
-</script>
 </body></html>
