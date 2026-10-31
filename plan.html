@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plan your trip · Xhale</title>
+<meta name="description" content="Can I do this? Your room, what's included, getting to Gili Air, and your full trip cost for Xhale, June 16 to 23, 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root {
+  --ink: #0F2A33; --ink-soft: #3E5A63; --lagoon: #0E5F70; --lagoon-deep: #08414D;
+  --shallows: #CFE7E6; --foam: #F6FAF9; --sand: #EADFCB; --sun: #E8B86A; --line: #D6E3E2; --white: #FFFFFF;
+  --display: "Marcellus", "Cormorant Garamond", Georgia, serif;
+  --body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+  --step-0: 1.0625rem; --step-3: 2.2rem;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--foam); color: var(--ink); font-family: var(--body); font-size: var(--step-0); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.12; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--lagoon); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; }
+@media (min-width: 700px) { .wrap { padding-inline: 32px; } }
+.band { padding-block: clamp(56px, 8vw, 104px); }
+.band.white { background: var(--white); }
+.band.sand { background: var(--sand); }
+.eyebrow { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--lagoon); }
+h2 { font-size: var(--step-3); margin-top: 12px; }
+.lead { margin-top: 14px; color: var(--ink-soft); max-width: 62ch; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; border-radius: 999px; background: var(--lagoon); color: var(--white); text-decoration: none; font: inherit; font-weight: 600; font-size: .98rem; border: 1.5px solid var(--lagoon); cursor: pointer; }
+.btn:hover { background: var(--lagoon-deep); border-color: var(--lagoon-deep); }
+.btn.light { background: transparent; color: var(--white); border-color: rgba(255,255,255,.7); }
+.btn.light:hover { background: rgba(255,255,255,.14); }
+.tbd { background: #FCEFD3; color: #6B4E12; font-size: .76rem; font-family: var(--body); padding: 1px 6px; border-radius: 4px; white-space: nowrap; vertical-align: middle; }
+
+/* nav */
+.nav { position: sticky; top: 0; z-index: 20; background: rgba(246,250,249,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.mark { font-family: var(--display); letter-spacing: .32em; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+.nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+.nav ul a { color: var(--ink-soft); text-decoration: none; font-size: .92rem; }
+.nav ul a:hover { color: var(--lagoon); }
+.nav .btn { padding: 10px 18px; font-size: .9rem; }
+@media (max-width: 900px) { .nav ul { display: none; } }
+
+/* hero */
+.hero { position: relative; color: #fff; background: linear-gradient(90deg, rgba(8,65,77,.75), rgba(8,65,77,.35)), url(img/resort-aerial.jpg) center / cover; }
+.hero .wrap { padding-block: clamp(90px, 14vw, 150px) clamp(56px, 8vw, 90px); display: grid; gap: 18px; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); max-width: 16ch; }
+.hero p { max-width: 54ch; color: rgba(255,255,255,.92); font-size: 1.1rem; }
+.steps { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 10px; padding: 0; list-style: none; }
+.steps a { display: inline-block; color: #fff; text-decoration: none; font-size: .9rem; font-weight: 600; padding: 7px 14px; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; }
+.steps a:hover { background: rgba(255,255,255,.14); }
+
+/* rooms */
+.rooms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 32px; }
+.room { background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; display: grid; }
+.room .ph { aspect-ratio: 16 / 9; background: center / cover; }
+.room .body { padding: 22px 24px 26px; display: grid; gap: 8px; align-content: start; }
+.room h3 { font-size: 1.6rem; }
+.room .price { font-family: var(--display); font-size: 2.2rem; color: var(--lagoon-deep); line-height: 1; margin-top: 4px; }
+.room .price small { font-family: var(--body); font-size: .9rem; color: var(--ink-soft); margin-left: 6px; }
+.room p { color: var(--ink-soft); }
+@media (max-width: 760px) { .rooms { grid-template-columns: 1fr; } }
+
+/* space */
+.space { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.space .ph { aspect-ratio: 4 / 3; border-radius: 20px; background: url(img/deck-dusk.jpg) center / cover; }
+.space p + p { margin-top: 14px; }
+.space .lead { margin-top: 16px; }
+@media (max-width: 820px) { .space { grid-template-columns: 1fr; } }
+
+/* included */
+.incl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+.item { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: grid; gap: 4px; align-content: start; }
+.item h3 { font-family: var(--body); font-weight: 600; font-size: 1.02rem; }
+.item p { color: var(--ink-soft); font-size: .95rem; }
+.item.soft { background: transparent; border-style: dashed; }
+@media (max-width: 900px) { .incl { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .incl { grid-template-columns: 1fr; } }
+
+/* two lists */
+.cols { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 40px; margin-top: 32px; }
+.cols h3 { font-size: 1.35rem; margin-bottom: 14px; }
+.cols ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.cols li { padding-left: 26px; position: relative; }
+.cols li::before { content: ""; position: absolute; left: 4px; top: .62em; width: 9px; height: 9px; border-radius: 50%; background: var(--lagoon); }
+.cols .not li::before { background: transparent; border: 1.5px solid var(--ink-soft); }
+.cols li b { font-weight: 600; }
+.cols li span.d { display: block; color: var(--ink-soft); font-size: .94rem; }
+@media (max-width: 760px) { .cols { grid-template-columns: 1fr; } }
+
+/* flights */
+.fares { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 30px; }
+.fare { background: var(--white); border-radius: 16px; padding: 20px 22px; display: grid; gap: 4px; }
+.fare .k { font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--lagoon); }
+.fare .v { font-family: var(--display); font-size: 1.7rem; }
+.fare .s { color: var(--ink-soft); font-size: .92rem; }
+.route { margin-top: 26px; display: grid; gap: 10px; max-width: 70ch; color: var(--ink-soft); }
+@media (max-width: 760px) { .fares { grid-template-columns: 1fr; } }
+
+/* calculator */
+.calcgrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; margin-top: 32px; align-items: start; }
+.inputs { display: grid; gap: 22px; }
+.q > .ql { display: block; font-weight: 600; margin-bottom: 8px; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; }
+.seg label { cursor: pointer; }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg span { display: inline-block; padding: 9px 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--white); font-size: .95rem; font-weight: 500; }
+.seg input:checked + span { border-color: var(--lagoon); background: var(--lagoon); color: #fff; }
+.seg input:focus-visible + span { outline: 2px solid var(--lagoon); outline-offset: 2px; }
+select, input[type=number] { font: inherit; font-size: .98rem; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); color: var(--ink); width: 100%; }
+.fareline { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 10px; align-items: end; }
+.fareline small, .hint { display: block; color: var(--ink-soft); font-size: .86rem; margin-top: 6px; }
+.chk { display: flex; gap: 10px; align-items: flex-start; font-size: .97rem; padding: 4px 0; }
+.chk input { margin-top: 5px; accent-color: var(--lagoon); }
+.chk em { font-style: normal; color: var(--ink-soft); font-size: .9rem; }
+.result { background: var(--shallows); border-radius: 20px; padding: 26px; display: grid; gap: 6px; position: sticky; top: 84px; }
+.result .k { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--lagoon); font-weight: 600; }
+.result .total { font-family: var(--display); font-size: clamp(2.4rem, 6vw, 3.4rem); line-height: 1; font-variant-numeric: tabular-nums; }
+.result dl { margin: 14px 0 0; display: grid; gap: 8px; border-top: 1px solid rgba(14,95,112,.2); padding-top: 14px; }
+.result dl div { display: flex; justify-content: space-between; gap: 12px; font-size: .95rem; }
+.result dt { color: var(--ink-soft); }
+.result dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.result .split { margin-top: 14px; background: var(--white); border-radius: 14px; padding: 16px; display: grid; gap: 6px; font-size: .95rem; }
+.result .split b { font-weight: 600; }
+.result .fine { margin-top: 10px; font-size: .84rem; color: var(--ink-soft); }
+@media (max-width: 860px) { .calcgrid { grid-template-columns: 1fr; } .result { position: static; } }
+
+/* pay */
+.pay { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+.pay > div { background: var(--white); border-radius: 18px; padding: 22px 24px; display: grid; gap: 6px; align-content: start; border: 1px solid var(--line); }
+.pay .k { font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--lagoon); }
+.pay h3 { font-size: 1.4rem; }
+.pay p { color: var(--ink-soft); font-size: .95rem; }
+.deposit { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; }
+.deposit .v { font-family: var(--display); font-size: 2.6rem; color: var(--lagoon-deep); line-height: 1; }
+@media (max-width: 820px) { .pay { grid-template-columns: 1fr; } }
+
+/* close */
+.close { position: relative; color: #fff; text-align: center; background: linear-gradient(rgba(8,65,77,.6), rgba(8,65,77,.75)), url(img/bungalows.jpg) center / cover; }
+.close .wrap { display: grid; gap: 18px; justify-items: center; }
+.close h2 { font-size: clamp(2rem, 5vw, 3rem); }
+.close p { max-width: 50ch; color: rgba(255,255,255,.9); }
+.close .row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 6px; }
+footer { padding: 34px 0 90px; color: var(--ink-soft); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+.joinbar { display: none; }
+@media (max-width: 700px) {
+  .joinbar { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(246,250,249,.95); border-top: 1px solid var(--line); }
+  .joinbar .btn { width: 100%; }
+}
+</style></head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="./" aria-label="Xhale home">XHALE</a>
+    <ul>
+      <li><a href="#room">Your room</a></li>
+      <li><a href="#included">What's included</a></li>
+      <li><a href="#getting-there">Getting there</a></li>
+      <li><a href="#cost">Your total</a></li>
+      <li><a href="#pay">How to pay</a></li>
+    </ul>
+    <a class="btn" href="join.html">Start here</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#BFE3E4">Plan your trip</p>
+    <h1>Can I really do this?</h1>
+    <p>Let's find out together. Here's your room, everything that's taken care of, how to get to Gili Air, and what the whole trip costs, flights included. No surprises.</p>
+    <ul class="steps">
+      <li><a href="#room">1 · Choose your room</a></li>
+      <li><a href="#included">2 · See what's included</a></li>
+      <li><a href="#getting-there">3 · Get there</a></li>
+      <li><a href="#cost">4 · See your total</a></li>
+      <li><a href="#pay">5 · Pick how you pay</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="band" id="room" aria-labelledby="room-h">
+  <div class="wrap">
+    <p class="eyebrow">Step one</p>
+    <h2 id="room-h">Choose your room</h2>
+    <p class="lead">Seven nights in a bungalow at Gili Air Lagoon Resort, June 16 to 23, 2027. Both options include everything on this page.</p>
+    <div class="rooms">
+      <article class="room">
+        <div class="ph" role="img" aria-label="Bungalows set in the lagoon pool" style="background-image:url(img/bungalows.jpg)"></div>
+        <div class="body">
+          <h3>Shared bungalow</h3>
+          <div class="price">$2,400<small>per person</small></div>
+          <p>Share with a friend, a partner, or another guest we'll thoughtfully pair you with. A lovely way to come on your own and leave with a roommate for life.</p>
+        </div>
+      </article>
+      <article class="room">
+        <div class="ph" role="img" aria-label="A bright bungalow bedroom" style="background-image:url(img/bedroom.jpg)"></div>
+        <div class="body">
+          <h3>Private bungalow</h3>
+          <div class="price">$2,950<small>just you</small></div>
+          <p>A room that's all yours. Your own quiet, your own schedule, and nobody to share the bathroom with.</p>
+        </div>
+      </article>
+    </div>
+    <p class="hint" style="margin-top:16px">Prices are per person for the seven night retreat. <span class="tbd">Confirm final and early bird pricing</span></p>
+  </div>
+</section>
+
+<section class="band white" aria-labelledby="space-h">
+  <div class="wrap space">
+    <div>
+      <p class="eyebrow">The space</p>
+      <h2 id="space-h">The resort is ours for the week</h2>
+      <p class="lead">Our group has the whole of Gili Air Lagoon Resort, except the beach club, which stays open to the public.</p>
+      <p class="lead">You may see a few other faces down at the beach club. Everywhere else, the bungalows, the gardens, the spa, and the spaces where we practice and gather, it's just us. Small, intimate, and quiet enough to really hear yourself.</p>
+    </div>
+    <div class="ph" role="img" aria-label="The resort deck at dusk"></div>
+  </div>
+</section>
+
+<section class="band" id="included" aria-labelledby="incl-h">
+  <div class="wrap">
+    <p class="eyebrow">Step two</p>
+    <h2 id="incl-h">What's taken care of</h2>
+    <p class="lead">You arrive. We handle the rest. Here's everything that's already part of your price.</p>
+    <div class="incl">
+      <div class="item"><h3>Seven nights on Gili Air</h3><p>Your bungalow at Gili Air Lagoon Resort, June 16 to 23.</p></div>
+      <div class="item"><h3>Breakfast every morning</h3><p>A slow breakfast at the resort, every day of the retreat.</p></div>
+      <div class="item"><h3>A spa treatment</h3><p>Time at the private spa, with a treatment for every guest.</p></div>
+      <div class="item"><h3>Daily yoga, breath, and sound</h3><p>Gentle practices with Jess for every body and every level.</p></div>
+      <div class="item"><h3>Circles and workshops</h3><p>Opening and closing ceremonies, and sessions with Jess and Aleisha.</p></div>
+      <div class="item"><h3>Island hopping and snorkeling</h3><p>A day on the water with our guide Mel. Clear water, coral, and maybe sea turtles.</p></div>
+      <div class="item"><h3>A welcome gift</h3><p>Your own Xhale journal, waiting in your room.</p></div>
+      <div class="item"><h3>Boat transfers <span class="tbd">Confirm</span></h3><p>The fast boat between Bali and Gili Air, both ways.</p></div>
+      <div class="item soft"><h3>Lunch and dinner <span class="tbd">Details coming</span></h3><p>We're finalizing how lunches and dinners work during the week. We'll share it here soon.</p></div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <h3>Add to your week</h3>
+        <ul>
+          <li><b>Private coaching with Aleisha</b><span class="d">A 30 or 60 minute walk on the beach about bringing more balance into your life back home. Booked ahead. <span class="tbd">Price TBD</span></span></li>
+          <li><b>Extra spa time</b><span class="d">More massages and treatments, booked ahead or once you're there.</span></li>
+          <li><b>Island experiences</b><span class="d">Things like a sunrise bike ride, a Sasak cooking class, or staying for the Gili T sunset. Some you can book before you go, some you can decide on the day. <span class="tbd">List and prices TBD</span></span></li>
+          <li><b>Extra nights in Bali</b><span class="d">Many people add a night before or after to rest.</span></li>
+        </ul>
+      </div>
+      <div class="not">
+        <h3>Not included</h3>
+        <ul>
+          <li>Flights to Bali</li>
+          <li>Travel insurance</li>
+          <li>Drinks and alcohol</li>
+          <li>Anything you add to your week</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band sand" id="getting-there" aria-labelledby="fly-h">
+  <div class="wrap">
+    <p class="eyebrow">Step three</p>
+    <h2 id="fly-h">Getting to Gili Air</h2>
+    <p class="lead">Fly into Bali (Denpasar, DPS), then take the fast boat to Gili Air. Here's what a round trip economy flight from the US typically runs. Fares change often, so treat these as a starting point.</p>
+    <div class="fares">
+      <div class="fare"><span class="k">West Coast</span><span class="v">$900 to $1,500</span><span class="s">Los Angeles and San Francisco are usually the least expensive way in.</span></div>
+      <div class="fare"><span class="k">Central US</span><span class="v">$1,100 to $1,700</span><span class="s">Chicago, Atlanta, Houston, Dallas, usually with one or two stops.</span></div>
+      <div class="fare"><span class="k">East Coast</span><span class="v">$1,100 to $1,800</span><span class="s">Boston, New York, Washington, usually with one or two stops.</span></div>
+    </div>
+    <div class="route">
+      <p>Plan on about a day of travel each way, so about 10 days away in total. Book early for the best fares, since June is a busy time to fly to Bali.</p>
+      <p>Already found a flight? Pop your real fare into the calculator below and your total updates.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band white" id="cost" aria-labelledby="cost-h">
+  <div class="wrap">
+    <p class="eyebrow">Step four</p>
+    <h2 id="cost-h">What will the whole trip cost me?</h2>
+    <p class="lead">Choose your room and where you're flying from. If you've already looked up flights, enter your fare. You'll see your full trip, and what it looks like month by month.</p>
+    <div class="calcgrid">
+      <form class="inputs" id="calc" onsubmit="return false">
+        <div class="q"><span class="ql" id="q-room">Your room</span>
+          <div class="seg" role="radiogroup" aria-labelledby="q-room">
+            <label><input type="radio" name="room" value="shared"><span>Shared · $2,400</span></label>
+            <label><input type="radio" name="room" value="private" checked><span>Private · $2,950</span></label>
+          </div>
+        </div>
+        <div class="q">
+          <label class="ql" for="c-from">Flying from</label>
+          <div class="fareline">
+            <select id="c-from">
+              <option value="west">West Coast</option>
+              <option value="central">Central US</option>
+              <option value="east" selected>East Coast</option>
+            </select>
+            <div><label class="ql" for="c-fare" style="margin-bottom:0;font-weight:500;font-size:.9rem">Round trip fare</label><input id="c-fare" type="number" min="0" step="10" inputmode="numeric" value="1450"></div>
+          </div>
+          <small id="c-fare-note">A typical fare from the East Coast. Found your own flight? Type the real price in.</small>
+        </div>
+        <div class="q"><span class="ql">Add to my estimate</span>
+          <label class="chk"><input type="checkbox" id="c-ins" checked> <span>Travel insurance <em>about $200</em></span></label>
+          <label class="chk"><input type="checkbox" id="c-night"> <span>An extra night in Bali <em>about $150</em></span></label>
+          <label class="chk"><input type="checkbox" id="c-spend" checked> <span>Drinks, tips, and spending money <em>about $250</em></span></label>
+          <label class="chk"><input type="checkbox" id="c-coach"> <span>Private coaching with Aleisha <em>price coming soon</em></span></label>
+        </div>
+        <div class="q"><span class="ql" id="q-pay">How I'd pay for Xhale</span>
+          <div class="seg" role="radiogroup" aria-labelledby="q-pay">
+            <label><input type="radio" name="pay" value="three" checked><span>Deposit, then 3 payments</span></label>
+            <label><input type="radio" name="pay" value="full"><span>Deposit, then pay in full</span></label>
+          </div>
+        </div>
+      </form>
+      <div class="result" aria-live="polite">
+        <span class="k">Your estimated total trip</span>
+        <div class="total" id="r-total">$0</div>
+        <dl id="r-lines"></dl>
+        <div class="split" id="r-split"></div>
+        <p class="fine">Lunch and dinner details are coming soon and aren't in this estimate yet. Flight and extras are estimates. <span class="tbd">Confirm payment dates</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="pay" aria-labelledby="pay-h">
+  <div class="wrap">
+    <p class="eyebrow">Step five</p>
+    <h2 id="pay-h">Pay the way that works for you</h2>
+    <div class="deposit"><span class="v">$500</span><span>holds your room. The rest is paid by <b>April 16, 2027</b>, two months before we go. <span class="tbd">Confirm</span></span></div>
+    <div class="pay">
+      <div><span class="k">Option one</span><h3>Pay in full</h3><p>Pay your balance in one go whenever you're ready, any time before April 16.</p></div>
+      <div><span class="k">Option two</span><h3>Three easy payments</h3><p>Split your balance into three equal payments on January 16, February 16, and March 16. <span class="tbd">Confirm</span></p></div>
+      <div><span class="k">Option three</span><h3>Pay over time</h3><p>Need longer? Choose Affirm at checkout and spread it over as many as 12 months. You pay Affirm, and your room is paid in full. <span class="tbd">Confirm with Stripe</span></p></div>
+    </div>
+    <p class="hint" style="margin-top:18px">Our refund and cancellation policy will be shared before reservations open. <span class="tbd">Policy TBD</span></p>
+  </div>
+</section>
+
+<section class="band close" aria-labelledby="close-h">
+  <div class="wrap">
+    <h2 id="close-h">Can you see yourself there?</h2>
+    <p>Join the list and we'll reach out personally. You'll hear first when reservations open.</p>
+    <div class="row">
+      <a class="btn" href="join.html" style="background:#fff;color:var(--lagoon-deep);border-color:#fff">Take the first breath</a>
+      <a class="btn light" href="./#week">See the week</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><a class="mark" href="./">XHALE</a> · Gili Air, Indonesia · June 16 to 23, 2027</p>
+    <p>Brought to you by Jess Breathe &amp; Flow and Build the Balance</p>
+  </div>
+</footer>
+<div class="joinbar"><a class="btn" href="join.html">Take the first breath</a></div>
+
+<script>
+(function () {
+  var PRICE = { shared: 2400, private: 2950 }, DEPOSIT = 500;
+  var TYPICAL = { west: 1200, central: 1400, east: 1450 };
+  var NAMES = { west: 'the West Coast', central: 'the central US', east: 'the East Coast' };
+  var EXTRA = { ins: ['Travel insurance', 200], night: ['Extra night in Bali', 150], spend: ['Drinks, tips, and spending', 250], coach: ['Private coaching', null] };
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+  var val = function (name) { var c = document.querySelector('input[name=' + name + ']:checked'); return c ? c.value : ''; };
+  var custom = false;
+  function monthsToGo() { var now = new Date(), go = new Date(2027, 5, 1); var m = (go.getFullYear() - now.getFullYear()) * 12 + (go.getMonth() - now.getMonth()); return Math.max(1, m); }
+  function calc() {
+    var room = val('room'), retreat = PRICE[room], fare = Math.max(0, +$('c-fare').value || 0);
+    var lines = [['Xhale, ' + (room === 'shared' ? 'shared' : 'private') + ' bungalow', retreat], ['Round trip flight', fare]];
+    var total = retreat + fare;
+    Object.keys(EXTRA).forEach(function (k) { if ($('c-' + k).checked) { var e = EXTRA[k]; lines.push([e[0], e[1]]); total += e[1] || 0; } });
+    $('r-total').textContent = money(total);
+    $('r-lines').innerHTML = lines.map(function (l) { return '<div><dt>' + l[0] + '</dt><dd>' + (l[1] === null ? 'Price coming' : money(l[1])) + '</dd></div>'; }).join('');
+    var bal = retreat - DEPOSIT, plan = val('pay') === 'three'
+      ? '<b>' + money(DEPOSIT) + '</b> to hold your room, then 3 payments of <b>' + money(bal / 3) + '</b> in January, February, and March.'
+      : '<b>' + money(DEPOSIT) + '</b> to hold your room, then <b>' + money(bal) + '</b> any time before April 16.';
+    var n = monthsToGo();
+    $('r-split').innerHTML = '<span><b>Paying Xhale:</b> ' + plan + '</span><span><b>Saving for the whole trip:</b> about <b>' + money(total / n) + '</b> a month for the next ' + n + ' months gets you there, flights and all.</span>';
+  }
+  $('c-from').addEventListener('change', function () {
+    var r = $('c-from').value;
+    if (!custom) $('c-fare').value = TYPICAL[r];
+    $('c-fare-note').textContent = custom ? 'Using the fare you entered.' : 'A typical fare from ' + NAMES[r] + '. Found your own flight? Type the real price in.';
+    calc();
+  });
+  $('c-fare').addEventListener('input', function () { custom = true; $('c-fare-note').textContent = 'Using the fare you entered.'; calc(); });
+  [].forEach.call(document.querySelectorAll('#calc input'), function (i) { if (i.id !== 'c-fare') i.addEventListener('change', calc); });
+  calc();
+})();
+</script>
+</body></html>
