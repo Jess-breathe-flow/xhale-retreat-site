@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Plan your trip · Xhale</title>
+<title>Rooms & pricing · Xhale</title>
 <meta name="description" content="Can I do this? Your room, what's included, getting to Gili Air, and your full trip cost for Xhale, June 16 to 23, 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap">
@@ -41,7 +41,9 @@ h2 { font-size: var(--step-3); margin-top: 12px; }
 .nav ul a { color: var(--ink-soft); text-decoration: none; font-size: .92rem; }
 .nav ul a:hover { color: var(--lagoon); }
 .nav .btn { padding: 10px 18px; font-size: .9rem; }
-@media (max-width: 900px) { .nav ul { display: none; } }
+.nav ul a { white-space: nowrap; }
+@media (max-width: 1180px) { .nav ul { gap: 14px; } .nav ul a { font-size: .86rem; } }
+@media (max-width: 1060px) { .nav ul { display: none; } }
 
 /* hero */
 .hero { position: relative; color: #fff; background: linear-gradient(90deg, rgba(8,65,77,.75), rgba(8,65,77,.35)), url(img/resort-aerial.jpg) center / cover; }
@@ -184,6 +186,17 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .subnav a.on { background: var(--lagoon); color: #fff; }
 .subnav a span { opacity: .6; margin-right: 6px; }
 section[id] { scroll-margin-top: 128px; }
+
+.zoomable { cursor: zoom-in; }
+.lb { position: fixed; inset: 0; z-index: 100; background: rgba(6,30,36,.92); display: grid; place-items: center; padding: 56px 16px 24px; }
+.lb[hidden] { display: none; }
+.lb figure { margin: 0; max-width: min(1200px, 100%); display: grid; gap: 10px; justify-items: center; }
+.lb img { max-width: 100%; max-height: calc(100vh - 130px); border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+.lb figcaption { color: rgba(255,255,255,.85); font-size: .95rem; text-align: center; }
+.lb button { position: absolute; background: rgba(255,255,255,.12); color: #fff; border: 0; border-radius: 999px; width: 44px; height: 44px; font-size: 1.4rem; cursor: pointer; display: grid; place-items: center; }
+.lb button:hover { background: rgba(255,255,255,.24); }
+.lb .x { top: 14px; right: 14px; }
+.lb .prev { left: 14px; top: 50%; } .lb .next { right: 14px; top: 50%; }
 </style></head>
 <body>
 
@@ -193,9 +206,10 @@ section[id] { scroll-margin-top: 128px; }
     <ul>
       <li><a href="./#week">The week</a></li>
       <li><a href="./#experiences">Experiences</a></li>
-      <li><a href="./#place">The place</a></li>
+      <li><a href="./#place">Where you'll stay</a></li>
+      <li><a href="./#included">What's included</a></li>
       <li><a href="./#guides">Your guides</a></li>
-      <li><a href="plan.html" aria-current="page" class="here">Plan your trip</a></li>
+      <li><a href="plan.html" aria-current="page" class="here">Rooms &amp; pricing</a></li>
       <li><a href="./#faq">FAQ</a></li>
     </ul>
     <a class="btn" href="join.html">Start here</a>
@@ -205,9 +219,10 @@ section[id] { scroll-margin-top: 128px; }
 <header class="hero">
   <div class="wrap">
     <a class="crumb" href="./">&larr; Back to the Xhale home page</a>
-    <p class="eyebrow" style="color:#BFE3E4">Plan your trip</p>
+    <p class="eyebrow" style="color:#BFE3E4">Rooms &amp; pricing</p>
     <h1>Can I really do this?</h1>
     <p>Let's find out together. Here's your room, everything that's taken care of, how to get to Gili Air, and what the whole trip costs, flights included. No surprises.</p>
+    <p style="margin-top:18px"><a class="btn" href="#cost" style="background:#fff;color:var(--lagoon-deep);border-color:#fff">Plan your trip</a></p>
     <ul class="steps">
       <li><a href="#room">1 · Choose your room</a></li>
       <li><a href="#included">2 · See what's included</a></li>
@@ -243,7 +258,7 @@ section[id] { scroll-margin-top: 128px; }
       </article>
     </div>
     <p class="hint" style="margin-top:16px">Prices are per person for the seven night retreat.</p>
-    <div class="amen"><h3>In your bungalow</h3><p>Everything you need to settle in, so you can pack light.</p><div class="bgal"><div role="img" aria-label="Two wooden bungalows with terraces over the lagoon pool" style="background-image:url(img/bungalow-front.jpg)"></div><div role="img" aria-label="A bungalow bedroom with a wood panel wall" style="background-image:url(img/bedroom-2.jpg)"></div><div role="img" aria-label="A bright open air bathroom with a walk in shower" style="background-image:url(img/bathroom.jpg)"></div></div><ul><li>Air conditioning</li><li>A private terrace with sun loungers</li><li>Hot shower</li><li>Robes and slippers</li><li>Shampoo, conditioner, and soap</li><li>Hair dryer</li><li>Mini fridge</li><li>Coffee maker and kettle</li><li>Bottled water</li><li>In room safe</li><li>Mosquito net</li></ul></div>
+    <div class="amen"><h3>In your bungalow</h3><p>Everything you need to settle in, so you can pack light.</p><div class="bgal"><div role="img" aria-label="Two wooden bungalows with terraces over the lagoon pool" style="background-image:url(img/bungalow-front.jpg)"></div><div role="img" aria-label="A bungalow bedroom with glass doors opening to the garden and pool" style="background-image:url(img/bedroom.jpg)"></div><div role="img" aria-label="A bungalow bedroom with a wood panel wall" style="background-image:url(img/bedroom-2.jpg)"></div><div role="img" aria-label="A bright bathroom with a walk in shower" style="background-image:url(img/bathroom.jpg)"></div><div role="img" aria-label="The bathroom from another angle, with a wooden vanity and shower" style="background-image:url(img/bathroom-2.jpg)"></div><div role="img" aria-label="Bungalows sitting right on the lagoon pool" style="background-image:url(img/bungalows-pool.jpg)"></div></div><ul><li>Air conditioning</li><li>A mosquito net over the bed</li><li>A private terrace with sun loungers</li><li>Robes and slippers</li><li>Hair dryer</li><li>Coffee maker and kettle</li><li>Mini fridge</li><li>Bottled water</li><li>In room safe</li><li>Free wifi</li><li>Daily housekeeping</li></ul></div>
   </div>
 </section>
 
@@ -270,11 +285,11 @@ section[id] { scroll-margin-top: 128px; }
       <div class="item"><h3>Breakfast every morning</h3><p>A slow breakfast at the resort, every day of the retreat.</p></div>
       <div class="item"><h3>A 60 minute massage</h3><p>A massage for every guest at the resort spa.</p></div>
       <div class="item"><h3>Daily yoga, breath, and sound</h3><p>Gentle practices with Jess for every body and every level.</p></div>
-      <div class="item"><h3>Circles and workshops</h3><p>Opening and closing ceremonies, and sessions with Jess and Aleisha.</p></div>
+      <div class="item"><h3>Guided sessions and circles</h3><p>Opening and closing ceremonies, and sessions with Jess and Aleisha.</p></div>
       <div class="item"><h3>Island hopping and snorkeling</h3><p>A day on the water with Pink Boat Tours. Clear water, coral, and maybe sea turtles.</p></div>
-      <div class="item"><h3>A welcome gift</h3><p>Your own Xhale journal, waiting in your room, plus all workshop materials.</p></div>
+      <div class="item"><h3>A welcome gift</h3><p>Your own Xhale journal, waiting in your room, plus all session materials.</p></div>
       <div class="item"><h3>Getting to the island</h3><p>The fast boat between Bali and Gili Air both ways, plus airport and harbor transfers.</p></div>
-      <div class="item"><h3>Meals</h3><p>Breakfast every morning, our welcome and celebration dinners together, and <mark class="ask">plenty of island spots to explore for lunch and dinner. We'll share exactly what's covered when booking opens.</mark></p></div>
+      <div class="item"><h3>Meals</h3><p>Breakfast every morning, our welcome and celebration dinners, and a few more lunches and dinners together. The rest are yours to enjoy at the resort or anywhere on the island. We'll share exactly what's covered when booking opens.</p></div>
     </div>
     <div class="mealbox"><p class="eyebrow" style="margin:0">Good to know</p><h3>How meals work</h3><p>Every morning starts with a slow breakfast at the resort. For lunch and dinner we head out to local spots around the island, all a short walk away: some meals we share as a group, like our opening night at Chill Out Bar, and others are yours to explore, with a few of our favorite nearby places to choose from.</p></div>
 
@@ -322,7 +337,7 @@ section[id] { scroll-margin-top: 128px; }
 
 <section class="band white" id="cost" aria-labelledby="cost-h">
   <div class="wrap">
-    <p class="eyebrow">Step four</p>
+    <p class="eyebrow">Step four · Plan your trip</p>
     <h2 id="cost-h">What will the whole trip cost me?</h2>
     <p class="lead">Choose your room and where you're flying from. If you've already looked up flights, enter your fare. You'll see your full trip, and what it looks like month by month.</p>
     <div class="calcgrid">
@@ -348,7 +363,7 @@ section[id] { scroll-margin-top: 128px; }
         <div class="q"><span class="ql">Add to my estimate</span>
           <label class="chk"><input type="checkbox" id="c-ins" checked> <span>Travel insurance <em>about $200</em></span></label>
           <label class="chk"><input type="checkbox" id="c-night"> <span>An extra night in Bali <em>about $150</em></span></label>
-          <label class="chk"><input type="checkbox" id="c-meals" checked> <span><mark class="ask">Meals on your own and snacks</mark> <em>about $200</em></span></label>
+          <label class="chk"><input type="checkbox" id="c-meals" checked> <span>Meals on your own and snacks <em>about $200</em></span></label>
           <label class="chk"><input type="checkbox" id="c-spend" checked> <span>Drinks, tips, and spending money <em>about $250</em></span></label>
           <label class="chk"><input type="checkbox" id="c-coach"> <span>Private coaching with Aleisha <em>price coming soon</em></span></label>
         </div>
@@ -364,7 +379,7 @@ section[id] { scroll-margin-top: 128px; }
         <div class="total" id="r-total">$0</div>
         <dl id="r-lines"></dl>
         <div class="split" id="r-split"></div>
-        <p class="fine"><mark class="ask">Meals on your own depend on what's included, which we'll confirm when booking opens.</mark> Flights and extras are estimates.</p>
+        <p class="fine">Meals on your own depend on what's included, which we'll confirm when booking opens. Flights and extras are estimates.</p>
       </div>
     </div>
   </div>
@@ -443,12 +458,33 @@ section[id] { scroll-margin-top: 128px; }
 <script>
 (function(){
   try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
-  if (!location.hash) window.scrollTo(0, 0);
+  function toTop(){ window.scrollTo(0, 0); try { document.documentElement.scrollIntoView({ block: 'start' }); } catch (e) {} }
+  if (!location.hash) { toTop(); window.addEventListener('load', toTop); }
   var links=[].slice.call(document.querySelectorAll('.subnav a'));
+  [].forEach.call(document.querySelectorAll('a[href^="#"]'),function(a){ a.addEventListener('click',function(e){ var id=a.getAttribute('href').slice(1), t=id&&document.getElementById(id); if(!t) return; e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); try{ history.replaceState(null,'','#'+id); }catch(x){} }); });
   var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
   function mark(){ var cur=-1; secs.forEach(function(s,i){ if(s && s.getBoundingClientRect().top<=150) cur=i; });
     links.forEach(function(a,i){ var on=i===cur; a.classList.toggle('on',on); if(on){ var w=a.parentNode; if(a.offsetLeft<w.scrollLeft||a.offsetLeft+a.offsetWidth>w.scrollLeft+w.offsetWidth) w.scrollLeft=a.offsetLeft-12; } }); }
   window.addEventListener('scroll',mark,{passive:true}); mark();
+})();
+</script>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo"><button class="x" type="button" aria-label="Close">&times;</button><button class="prev" type="button" aria-label="Previous photo">&#8249;</button><figure><img alt=""><figcaption></figcaption></figure><button class="next" type="button" aria-label="Next photo">&#8250;</button></div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'); if(!lb) return;
+  var img=lb.querySelector('img'), cap=lb.querySelector('figcaption'), list=[], idx=0, last=null;
+  function src(el){ if(el.tagName==='IMG') return el.currentSrc||el.src; var m=(el.style.backgroundImage||'').match(/url\(["']?([^"')]+)["']?\)\s*$/); return m?m[1]:''; }
+  function label(el){ return el.getAttribute('alt')||el.getAttribute('aria-label')||''; }
+  var els=[].slice.call(document.querySelectorAll('.ph.photo, .bgal > div, figure.isle img')).filter(function(el){ return !el.closest('.hero') && src(el); });
+  els.forEach(function(el,i){ list.push(el); el.classList.add('zoomable'); if(el.tagName!=='IMG'){ el.setAttribute('tabindex','0'); }
+    el.addEventListener('click',function(e){ e.preventDefault(); open(i); });
+    el.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(i); } }); });
+  function show(i){ idx=(i+list.length)%list.length; var el=list[idx]; img.src=src(el); img.alt=label(el); cap.textContent=label(el); }
+  function open(i){ last=document.activeElement; show(i); lb.hidden=false; document.body.style.overflow='hidden'; lb.querySelector('.x').focus(); }
+  function close(){ lb.hidden=true; document.body.style.overflow=''; if(last) last.focus(); }
+  lb.querySelector('.x').onclick=close; lb.querySelector('.prev').onclick=function(){show(idx-1)}; lb.querySelector('.next').onclick=function(){show(idx+1)};
+  lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+  document.addEventListener('keydown',function(e){ if(lb.hidden) return; if(e.key==='Escape') close(); if(e.key==='ArrowLeft') show(idx-1); if(e.key==='ArrowRight') show(idx+1); });
 })();
 </script>
 </body></html>
