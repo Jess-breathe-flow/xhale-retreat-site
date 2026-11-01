@@ -517,6 +517,17 @@ footer a { color: var(--white); }
 .cform, #cform-thanks { width: 100%; box-shadow: 0 10px 40px rgba(8,65,77,.08); }
 .ctwhen[hidden] { display: none; }
 @media (max-width: 860px) { .ctgrid { grid-template-columns: 1fr; } }
+.whole { background: linear-gradient(160deg, #DDF0EF 0%, var(--shallows) 100%); }
+.whole h2 { font-size: var(--step-3); }
+.wholetop { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 40px; align-items: start; }
+.wholetext p { color: var(--ink); max-width: 64ch; margin: 0; }
+.wholetext p + p { margin-top: 14px; }
+.facets { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.facets li { background: rgba(255,255,255,.7); border-radius: 16px; padding: 16px; display: grid; gap: 4px; align-content: start; }
+.facets b { font-family: var(--display); font-weight: 400; font-size: 1.3rem; color: var(--lagoon-deep); }
+.facets span { font-size: .88rem; line-height: 1.5; color: var(--ink-soft); }
+@media (max-width: 1000px) { .facets { grid-template-columns: repeat(3, minmax(0, 1fr)); } .wholetop { grid-template-columns: 1fr; gap: 16px; } }
+@media (max-width: 560px) { .facets { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 </style>
 </head>
 <body>
@@ -621,6 +632,29 @@ footer a { color: var(--white); }
     </div>
     <p class="note">Every session is an invitation. Join, watch, or rest. Small details may shift as we finalize the week.</p>
     <p class="week-cta">Can you see yourself there? <a class="btn" href="join.html">Take the first breath</a></p>
+  </div>
+</section>
+
+<section class="band whole" aria-labelledby="whole-h">
+  <div class="wrap">
+    <div class="wholetop">
+      <div>
+        <p class="eyebrow">The whole of it</p>
+        <h2 id="whole-h" style="margin-top:12px">All of life, in one week</h2>
+      </div>
+      <div class="wholetext">
+        <p>Xhale isn't a retreat where you sit still for seven days. It's rest, and it's also adventure. You'll breathe and stretch by the water, and you'll snorkel with sea turtles. You'll lie under the stars for a sound bath, and you'll dance barefoot in the sand. You'll taste the island's food, ride its sandy paths, and spend time in a culture that moves at a different pace than home.</p>
+        <p>Every piece was chosen on purpose. Stillness and adventure, quiet and laughter, the familiar and the new. Together they wake up your senses and remind you what life is supposed to feel like. And somewhere between the sound bath and the dance party, things start to shift. You loosen your grip on where you've been, step a little outside your comfort zone, and start asking a better question: what do I want next?</p>
+      </div>
+    </div>
+    <ul class="facets">
+      <li><b>Breathe</b><span>Breathwork, yoga, and sound to settle your body.</span></li>
+      <li><b>Rest</b><span>The pool, the spa, and long, quiet afternoons.</span></li>
+      <li><b>Explore</b><span>Turtles, sandy bike paths, and a day on Gili T.</span></li>
+      <li><b>Play</b><span>A beach dance party and laughter you forgot you had.</span></li>
+      <li><b>Connect</b><span>Circles, shared dinners, and a group that becomes yours.</span></li>
+      <li><b>Reflect</b><span>Guided sessions and your journal, to ask what's next.</span></li>
+    </ul>
   </div>
 </section>
 
@@ -938,7 +972,7 @@ footer a { color: var(--white); }
 </script>
 <script>
 // Paste the Google Apps Script web app URL here (same one as the Join form).
-var XHALE_FORM_URL = '';
+var XHALE_FORM_URL = 'https://script.google.com/macros/s/AKfycbxsfRIDaK1o5S2aIn2s6Wf8Dqi36lT6CFb6qo__S156D7VwsWQfHD-9blQZs19gjihouQ/exec';
 (function(){
   var f=document.getElementById('cform'); if(!f) return;
   var when=f.querySelector('.ctwhen');

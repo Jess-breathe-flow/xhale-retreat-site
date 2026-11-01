@@ -54,6 +54,7 @@ a { color: var(--lagoon); }
 .iform label { display: block; font-size: .92rem; font-weight: 600; color: var(--ink); }
 .iform label > input:not([type=radio]), .iform label > textarea, .iform label > select { display: block; margin-top: 6px; }
 .ithanks[hidden], .iform[hidden] { display: none; }
+.iform .opt { font-weight: 500; font-size: .78rem; color: var(--ink-soft); margin-left: 4px; }
 .iform .req { font-weight: 500; font-size: .78rem; color: var(--lagoon); margin-left: 4px; }
 .iform input:not([type=radio]), .iform textarea, .iform select { font: inherit; font-weight: 400; font-size: .98rem; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--foam); color: var(--ink); width: 100%; box-sizing: border-box; }
 .iform textarea { resize: vertical; }
@@ -103,6 +104,12 @@ mark.ask { background:#FFE9A8; color:inherit; border-bottom:1px dashed #C9A23F; 
         <label class="ichk"><input type="radio" name="room" value="private"> Private</label>
         <label class="ichk"><input type="radio" name="room" value="unsure" checked> Not sure yet</label>
       </fieldset>
+      <fieldset><legend>Where are you right now?</legend>
+        <label class="ichk"><input type="radio" name="stage" value="exploring" checked> Just exploring</label>
+        <label class="ichk"><input type="radio" name="stage" value="considering"> Seriously considering</label>
+        <label class="ichk"><input type="radio" name="stage" value="ready"> Ready to reserve when booking opens</label>
+      </fieldset>
+      <label>Phone <span class="opt">optional</span><input name="phone" type="tel" autocomplete="tel" placeholder="If you'd like us to connect personally"></label>
       <label>How did you hear about us?<select name="heard"><option value="">Choose one</option><option>Jess or Jess Breathe &amp; Flow</option><option>Aleisha or Build the Balance</option><option>A friend</option><option>Instagram</option><option>LinkedIn</option><option>Somewhere else</option></select></label>
       <p class="ipriv">What you share here is read only by Jess and Aleisha. We'll never share it. <a href="privacy.html">Privacy Policy</a></p>
       <p class="ierr" id="iform-err" role="alert"></p>
@@ -116,7 +123,7 @@ mark.ask { background:#FFE9A8; color:inherit; border-bottom:1px dashed #C9A23F; 
 </div>
 <script>
 // Paste the Google Apps Script web app URL here to send answers to the Xhale Interest List sheet.
-var SHEET_URL = '';
+var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxsfRIDaK1o5S2aIn2s6Wf8Dqi36lT6CFb6qo__S156D7VwsWQfHD-9blQZs19gjihouQ/exec';
 (function(){
   var f=document.getElementById('iform'); if(!f) return;
   f.addEventListener('submit',function(e){
