@@ -80,6 +80,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (max-width: 1360px) { .nav ul { gap: 14px; } .nav ul a { font-size: .86rem; } }
 @media (max-width: 1060px) { .nav ul { display: none; } }
 
+/* sticky sub-nav */
+.subnav { position: sticky; top: 71px; z-index: 19; background: rgba(214,236,235,.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(14,95,112,.15); }
+.subnav .wrap { display: flex; gap: 6px; overflow-x: auto; padding-block: 8px; scrollbar-width: none; }
+.subnav .wrap::-webkit-scrollbar { display: none; }
+.subnav a { flex: none; font-size: .88rem; font-weight: 600; color: var(--lagoon-deep); text-decoration: none; padding: 7px 14px; border-radius: 999px; }
+.subnav a:hover { color: var(--lagoon-deep); background: rgba(255,255,255,.6); }
+.subnav a.on { background: var(--lagoon); color: #fff; }
+
 /* mobile menu */
 .navtoggle { display: none; background: none; border: 1.5px solid var(--line); border-radius: 10px; width: 42px; height: 42px; align-items: center; justify-content: center; cursor: pointer; flex: none; padding: 0; }
 .navtoggle span { display: block; width: 20px; height: 2px; background: var(--ink); position: relative; transition: background .15s; }
@@ -560,12 +568,12 @@ footer a { color: var(--white); }
   <div class="wrap">
     <a class="mark" href="#top" aria-label="Xhale home">XHALE</a>
     <ul>
-      <li><a href="#week">The week</a></li>
+      <li><a href="#week">Retreat</a></li>
       <li><a href="#experiences">Experiences</a></li>
-      <li><a href="#place">Where you'll stay</a></li>
-      <li><a href="#included">What's included</a></li>
-      <li><a href="#guides">Your guides</a></li>
-      <li><a href="plan.html">Rooms &amp; pricing</a></li>
+      <li><a href="#place">Stay</a></li>
+      <li><a href="#included">Included</a></li>
+      <li><a href="#guides">Guides</a></li>
+      <li><a href="plan.html">Room &amp; cost</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -578,11 +586,11 @@ footer a { color: var(--white); }
     <div class="grp">
       <div class="glabel">On this page</div>
       <ul>
-        <li><a href="#week">The week</a></li>
+        <li><a href="#week">Retreat</a></li>
         <li><a href="#experiences">Experiences</a></li>
-        <li><a href="#place">Where you'll stay</a></li>
-        <li><a href="#included">What's included</a></li>
-        <li><a href="#guides">Your guides</a></li>
+        <li><a href="#place">Stay</a></li>
+        <li><a href="#included">Included</a></li>
+        <li><a href="#guides">Guides</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -590,7 +598,7 @@ footer a { color: var(--white); }
     <div class="grp">
       <div class="glabel">Plan your trip</div>
       <ul>
-        <li><a href="plan.html">Rooms &amp; pricing</a></li>
+        <li><a href="plan.html">Room &amp; cost</a></li>
       </ul>
     </div>
     <a class="btn" href="join.html">Start here</a>
@@ -611,7 +619,7 @@ footer a { color: var(--white); }
   </div>
 </header>
 
-
+<nav class="subnav" aria-label="On this page"><div class="wrap"><a href="#week"><span>1</span>Retreat</a><a href="#whole"><span>2</span>All of life</a><a href="#experiences"><span>3</span>Experiences</a><a href="#place"><span>4</span>Stay</a><a href="#included"><span>5</span>Included</a><a href="#guides"><span>6</span>Guides</a><a href="#faq"><span>7</span>FAQ</a><a href="#contact"><span>8</span>Contact</a></div></nav>
 
 <main>
 <section class="band why" aria-labelledby="why-h">
@@ -659,7 +667,7 @@ footer a { color: var(--white); }
   </div>
 </section>
 
-<section class="band whole" aria-labelledby="whole-h">
+<section class="band whole" id="whole" aria-labelledby="whole-h">
   <div class="wrap">
     <div class="wholetop">
       <div>
@@ -1005,6 +1013,17 @@ var XHALE_FORM_URL = 'https://script.google.com/macros/s/AKfycbxsfRIDaK1o5S2aIn2
   btn.addEventListener('click',function(){ (panel.classList.contains('open')?close:open)(); });
   [].forEach.call(panel.querySelectorAll('a'),function(a){ a.addEventListener('click',close); });
   window.addEventListener('resize',function(){ if(window.innerWidth>1060) close(); });
+})();
+</script>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.subnav a'));
+  if(!links.length) return;
+  [].forEach.call(links,function(a){ a.addEventListener('click',function(e){ var id=a.getAttribute('href').slice(1), t=id&&document.getElementById(id); if(!t) return; e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); try{ history.replaceState(null,'','#'+id); }catch(x){} }); });
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  function mark(){ var cur=-1; secs.forEach(function(s,i){ if(s && s.getBoundingClientRect().top<=150) cur=i; });
+    links.forEach(function(a,i){ var on=i===cur; a.classList.toggle('on',on); if(on){ var w=a.parentNode; if(a.offsetLeft<w.scrollLeft||a.offsetLeft+a.offsetWidth>w.scrollLeft+w.offsetWidth) w.scrollLeft=a.offsetLeft-12; } }); }
+  window.addEventListener('scroll',mark,{passive:true}); mark();
 })();
 </script>
 </body>
