@@ -87,7 +87,18 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .subnav a { flex: none; font-size: .88rem; font-weight: 600; color: var(--lagoon-deep); text-decoration: none; padding: 7px 14px; border-radius: 999px; }
 .subnav a:hover { color: var(--lagoon-deep); background: rgba(255,255,255,.6); }
 .subnav a.on { background: var(--lagoon); color: #fff; }
+@media (min-width: 1061px) { .subnav { display: none; } }
 #week, #whole, #experiences, #place, #included, #guides, #faq, #contact { scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 120px); }
+
+/* exhale band */
+.exhale { background: var(--lagoon-deep); color: var(--white); text-align: center; }
+.exhale h2 { color: var(--white); font-size: var(--step-3); max-width: 28ch; margin-inline: auto; }
+.exhale .lead { margin-top: 16px; color: rgba(255,255,255,.88); max-width: 60ch; margin-inline: auto; }
+.exhale .three { text-align: left; }
+.exhale .three > div { border-top: 1px solid rgba(255,255,255,.28); }
+.exhale .three h3 { color: var(--white); }
+.exhale .three p { color: rgba(255,255,255,.82); }
+.exhale .three .n { color: var(--shallows); border-top: none; padding-top: 0; }
 
 /* mobile menu */
 .navtoggle { display: none; background: none; border: 1.5px solid var(--line); border-radius: 10px; width: 42px; height: 42px; align-items: center; justify-content: center; cursor: pointer; flex: none; padding: 0; }
@@ -262,6 +273,7 @@ body.navopen { overflow: hidden; }
 @media (max-width: 760px) { .cols { grid-template-columns: 1fr; } }
 
 /* guides */
+.guides { background: var(--sand); }
 .guides h2 { font-size: var(--step-3); }
 .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; margin-top: 36px; }
 .guide { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 20px; align-items: start; }
@@ -630,8 +642,11 @@ footer a { color: var(--white); }
     <p>You're so used to carrying it all that you don't even notice the weight anymore. You just know you're tired in a way sleep doesn't fix.</p>
     <p class="q">When was the last time you took a real breath? The deep kind that reaches all the way down and lets your shoulders drop.</p>
   </div>
-  <div class="wrap" style="margin-top:56px">
-    <h2 id="why-h" style="max-width:28ch">Finally, a place to exhale.</h2>
+</section>
+
+<section class="band exhale" aria-labelledby="why-h">
+  <div class="wrap">
+    <h2 id="why-h">Finally, a place to exhale.</h2>
     <p class="lead">For anyone who carries it all and is ready to set it down. Not a work trip, not a vacation you end up planning for everyone else. Seven nights on a small island with no cars, where the only thing on your list is you. Come exactly as you are, not healed or put together. You already belong here.</p>
     <div class="three">
       <div><span class="n">Step out</span><h3>Put it all down</h3><p>For one week, nobody needs anything from you. No one to feed, no inbox to answer, no one to check on.</p></div>
@@ -790,6 +805,7 @@ footer a { color: var(--white); }
       <div><span class="k">Private bungalow</span><span class="v">$3,200</span><span class="s">per person, seven nights</span></div>
       <div class="pn"><span class="k">Reserve with</span><span class="v">$500</span><span class="s">deposit, then a payment plan</span></div>
     </div>
+    <p style="margin-top:14px;font-weight:600;color:var(--lagoon-deep)">Heads up: the $500 deposit is non refundable. <a href="#faq" style="font-weight:600">See our full cancellation policy</a>.</p>
     <div class="igrid">
       <div class="icard"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div><h3>Your stay</h3><ul><li>Seven nights at Gili Air Lagoon Resort</li><li>A shared or private bungalow</li><li>The resort reserved for our group</li><li>Daily housekeeping</li></ul></div>
       <div class="icard"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7"/><path d="M21 18v-5a3 3 0 0 0-3-3H10v8"/><path d="M3 14h18"/><circle cx="6.5" cy="10.5" r="1.5"/></svg></div><h3>Your bungalow</h3><ul><li>Air conditioning and a mosquito net</li><li>A private terrace with sun loungers</li><li>Robes, slippers, and a hair dryer</li><li>Coffee maker, kettle, and mini fridge</li><li>Bottled water and an in room safe</li><li>Free wifi</li></ul></div>
@@ -878,15 +894,14 @@ footer a { color: var(--white); }
       <details><summary>Who is Xhale for?</summary><p class="a">Anyone who carries a lot and is ready to set it down. Wherever you come from and whatever you're carrying, you're welcome here, exactly as you are.</p></details>
       <details><summary>Do I need yoga or breathwork experience?</summary><p class="a">No. Every practice works for every body and every level, and every session is optional.</p></details>
       <details><summary>What are the guided sessions, and how involved do I need to be?</summary><p class="a">Jess and Aleisha lead four short, gentle sessions during the week: Remember who you are with Jess, and Cultivating gratitude (30 min), Lighten your life (60 min), and Your recharge map (60 min) with Aleisha. Each one blends a little teaching, quiet journaling, and conversation. You don't need to prepare or bring anything, since your journal and materials are waiting for you. Like everything at Xhale, they're an invitation, not a requirement. Join in fully, sit back and listen, or skip one for a nap. Sharing is always your choice.</p></details>
-      <details><summary>Can I come on my own?</summary><p class="a">Yes. Most people do. The group is small, and you'll know everyone by the second day.</p></details>
+      <details><summary>Can I come on my own, or bring a friend or partner?</summary><p class="a">Either way. Most people come on their own, the group is small and you'll know everyone by the second day. Xhale is open to people of all genders, so coming with someone you love is welcome too. Shared bungalows are a good fit for two, at $2,400 per person.</p></details>
       <details><summary>How active is the week?</summary><p class="a">As active as you want it to be. Snorkeling and biking are there if you want them, and so are naps.</p></details>
       <details><summary>How much time off will I need?</summary><p class="a">Plan on about 10 days. The retreat is seven nights, and the flight from the US to Bali takes about a day each way. Many people add a night in Bali to rest before the boat.</p></details>
-      <details><summary>Can I bring a friend or partner?</summary><p class="a">Yes. Xhale is open to people of all genders, and coming with someone you love is welcome. Shared bungalows are a good fit for two, at $2,400 per person.</p></details>
       <details><summary>Is it safe? What is the island like?</summary><div class="a"><p>Gili Air is a small, friendly island with no cars and a slower, quieter pace than its party neighbor, Gili T. Crime is low, and what travelers do run into is mostly small stuff like petty theft. We still plan for your safety, and we hope you'll keep these in mind:</p><ul><li><b>We believe in the buddy system.</b> Heading out to explore, swim, or walk back after dark? Go with a friend from the group, and let one of us know where you're off to.</li><li><b>Do what feels safe for you.</b> Every outing is optional. If you'd rather stay in, you can eat at the resort restaurant any time instead of heading out.</li><li><b>Bring a little light.</b> The paths are sandy and some aren't lit at night, so a small flashlight or your phone light helps.</li><li><b>Swim with the group.</b> There are no lifeguards on the beaches, so we snorkel together with local guides.</li><li><b>Keep it simple.</b> Drink bottled water, stick to drinks from real bars and restaurants, and keep valuables in your in room safe.</li></ul><p>And you're never on your own: there's a doctor on call around the clock, a front desk open 24 hours, a trusted contact of ours on the island, and the two of us with you all week.</p></div></details>
       <details><summary>What about food needs, accessibility, or health?</summary><p class="a">Tell us what you need when you reserve, and we'll plan around it. The island has sandy paths and no cars, so getting around means walking, biking, or a horse cart. If that's a concern, ask us and we'll talk it through.</p></details>
       <details><summary>Will I have wifi?</summary><p class="a">Yes. There's free wifi in your room and around the resort. We'll gently invite you to unplug, but nothing is required.</p></details>
       <details><summary>How do I get there?</summary><p class="a">Fly into Bali (Denpasar). Your airport and harbor transfers and the fast boat to Gili Air are included. Your passport should be valid for at least six months after travel. We'll send a full travel guide when you reserve.</p></details>
-      <details><summary>What if I need to cancel?</summary><p class="a">Your $500 deposit is non refundable. If you cancel 90 or more days before the retreat, we refund everything beyond the deposit. Between 60 and 89 days, we refund half. Under 60 days, payments are non refundable. You can also transfer your place to someone else for a $100 fee. We strongly recommend travel insurance.</p></details>
+      <details><summary>What if I need to cancel?</summary><p class="a"><b>Your $500 deposit is non refundable.</b> If you cancel 90 or more days before the retreat, we refund everything beyond the deposit. Between 60 and 89 days, we refund half. Under 60 days, payments are non refundable. You can also transfer your place to someone else for a $100 fee. We strongly recommend travel insurance.</p></details>
     </div>
   </div>
 </section>
@@ -898,6 +913,11 @@ footer a { color: var(--white); }
       <h2 id="contact-h" style="margin-top:12px">Still wondering? Let's talk.</h2>
       <p class="lead">Ask us anything, or tell us you'd like to hop on a quick call. One of us will write back personally, usually within a day or two.</p>
       <p class="ctmail">Prefer email? <a href="mailto:info@jessbreatheandflow.com">info@jessbreatheandflow.com</a></p>
+      <p class="ctmail" style="margin-top:16px">Or reach out to one of us directly, or just use the form, whatever's easiest.</p>
+      <ul style="margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px;color:var(--ink-soft);font-size:.95rem">
+        <li><b style="color:var(--ink)">Jess Metayer</b>, Jess Breathe &amp; Flow &middot; <a href="mailto:info@jessbreatheandflow.com">info@jessbreatheandflow.com</a></li>
+        <li><b style="color:var(--ink)">Aleisha Agard</b>, Build the Balance &middot; <a href="mailto:aleisha@buildthebalance.com">aleisha@buildthebalance.com</a></li>
+      </ul>
     </div>
     <form class="iform cform" id="cform" novalidate aria-labelledby="contact-h">
       <div class="irow">
