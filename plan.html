@@ -304,7 +304,7 @@ section[id] { scroll-margin-top: 128px; }
         <div class="ph" role="img" aria-label="Bungalows set in the lagoon pool" style="background-image:url(img/bungalows.jpg)"></div>
         <div class="body">
           <h3>Shared bungalow</h3>
-          <div class="price">$2,400<small>per person</small></div>
+          <div class="price">$2,200<small>per person</small></div>
           <p>Share with a friend, a partner, or another guest we'll thoughtfully pair you with. A lovely way to come on your own and leave with a roommate for life.</p>
         </div>
       </article>
@@ -312,7 +312,7 @@ section[id] { scroll-margin-top: 128px; }
         <div class="ph" role="img" aria-label="A bright bungalow bedroom" style="background-image:url(img/bedroom.jpg)"></div>
         <div class="body">
           <h3>Private bungalow</h3>
-          <div class="price">$3,200<small>just you</small></div>
+          <div class="price">$2,900<small>just you</small></div>
           <p>A room that's all yours. Your own quiet, your own schedule, and nobody to share the bathroom with.</p>
         </div>
       </article>
@@ -404,8 +404,8 @@ section[id] { scroll-margin-top: 128px; }
       <form class="inputs" id="calc" onsubmit="return false">
         <div class="q"><span class="ql" id="q-room">Your room</span>
           <div class="seg" role="radiogroup" aria-labelledby="q-room">
-            <label><input type="radio" name="room" value="shared"><span>Shared · $2,400</span></label>
-            <label><input type="radio" name="room" value="private" checked><span>Private · $3,200</span></label>
+            <label><input type="radio" name="room" value="shared"><span>Shared · $2,200</span></label>
+            <label><input type="radio" name="room" value="private" checked><span>Private · $2,900</span></label>
           </div>
         </div>
         <div class="q">
@@ -430,7 +430,7 @@ section[id] { scroll-margin-top: 128px; }
         <div class="q"><span class="ql" id="q-pay">How I'd pay for Xhale</span>
           <div class="seg" role="radiogroup" aria-labelledby="q-pay">
             <label><input type="radio" name="pay" value="three" checked><span>Deposit, then 3 payments</span></label>
-            <label><input type="radio" name="pay" value="full"><span>Deposit, then pay in full</span></label>
+            <label><input type="radio" name="pay" value="full"><span>Deposit, then pay in full · save $200</span></label>
           </div>
         </div>
       </form>
@@ -488,7 +488,7 @@ section[id] { scroll-margin-top: 128px; }
 
 <script>
 (function () {
-  var PRICE = { shared: 2400, private: 3200 }, DEPOSIT = 500;
+  var PRICE = { shared: 2200, private: 2900 }, DEPOSIT = 500, PIF_DISCOUNT = 200;
   var TYPICAL = { west: 1200, central: 1400, east: 1450 };
   var NAMES = { west: 'the West Coast', central: 'the central US', east: 'the East Coast' };
   var EXTRA = { ins: ['Travel insurance', 200], night: ['Extra night in Bali', 150], meals: ['Meals on your own', 200], spend: ['Drinks, tips, and spending', 250], coach: ['Private coaching', null] };
@@ -498,15 +498,15 @@ section[id] { scroll-margin-top: 128px; }
   var custom = false;
   function monthsToGo() { var now = new Date(), go = new Date(2027, 5, 1); var m = (go.getFullYear() - now.getFullYear()) * 12 + (go.getMonth() - now.getMonth()); return Math.max(1, m); }
   function calc() {
-    var room = val('room'), retreat = PRICE[room], fare = Math.max(0, +$('c-fare').value || 0);
-    var lines = [['Xhale, ' + (room === 'shared' ? 'shared' : 'private') + ' bungalow', retreat], ['Round trip flight', fare]];
+    var room = val('room'), payFull = val('pay') === 'full', retreat = PRICE[room] - (payFull ? PIF_DISCOUNT : 0), fare = Math.max(0, +$('c-fare').value || 0);
+    var lines = [['Xhale, ' + (room === 'shared' ? 'shared' : 'private') + ' bungalow' + (payFull ? ' (pay in full, $200 off)' : ''), retreat], ['Round trip flight', fare]];
     var total = retreat + fare;
     Object.keys(EXTRA).forEach(function (k) { if ($('c-' + k).checked) { var e = EXTRA[k]; lines.push([e[0], e[1]]); total += e[1] || 0; } });
     $('r-total').textContent = money(total);
     $('r-lines').innerHTML = lines.map(function (l) { return '<div><dt>' + l[0] + '</dt><dd>' + (l[1] === null ? 'Price coming' : money(l[1])) + '</dd></div>'; }).join('');
-    var bal = retreat - DEPOSIT, plan = val('pay') === 'three'
+    var bal = retreat - DEPOSIT, plan = !payFull
       ? '<b>' + money(DEPOSIT) + '</b> to hold your room, then 3 payments of <b>' + money(bal / 3) + '</b> before the retreat.'
-      : '<b>' + money(DEPOSIT) + '</b> to hold your room, then <b>' + money(bal) + '</b> before the retreat.';
+      : '<b>' + money(DEPOSIT) + '</b> to hold your room, then <b>' + money(bal) + '</b> before the retreat, with your $200 pay in full discount already taken off.';
     var n = monthsToGo();
     $('r-split').innerHTML = '<span><b>Paying Xhale:</b> ' + plan + '</span><span><b>Saving for the whole trip:</b> about <b>' + money(total / n) + '</b> a month for the next ' + n + ' months gets you there, flights and all.</span>';
   }
