@@ -7,29 +7,29 @@
 <meta name="description" content="Reserve your spot for Xhale: seven nights on Gili Air, Indonesia, June 16 to 23, 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Marcellus&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <style>
 :root {
   --ink: #0F2A33; --ink-soft: #3E5A63; --lagoon: #0E5F70; --lagoon-deep: #08414D;
   --shallows: #CFE7E6; --foam: #F6FAF9; --sand: #EADFCB; --sun: #E8B86A; --line: #D6E3E2; --white: #FFFFFF;
   --display: "Marcellus", "Cormorant Garamond", Georgia, serif;
   --body: "Figtree", "Helvetica Neue", Arial, sans-serif;
-  --step-0: 1.0625rem; --step-2: 1.6rem; --step-3: 2.2rem; --step-4: clamp(2.2rem, 5.5vw, 3.6rem);
+  --step-4: clamp(2.2rem, 5.5vw, 3.6rem);
   color-scheme: light;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--foam); color: var(--ink); font-family: var(--body); font-size: var(--step-0); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--foam); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.12; text-wrap: balance; margin: 0; }
 p { margin: 0; }
 a { color: var(--lagoon); }
 .wrap { max-width: 1000px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-.narrow { max-width: 680px; }
-.band { padding-block: clamp(40px, 7vw, 76px); }
+.band { padding-block: clamp(32px, 6vw, 60px); }
 .eyebrow { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--lagoon); }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; border-radius: 999px; background: var(--lagoon); color: var(--white); text-decoration: none; font-weight: 600; font-size: .98rem; border: 1.5px solid var(--lagoon); cursor: pointer; transition: background .2s; }
 .btn:hover { background: var(--lagoon-deep); }
-.btn[disabled] { opacity: .5; cursor: not-allowed; }
+.btn.ghost { background: transparent; color: var(--lagoon); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
 a:focus-visible, .btn:focus-visible, label:focus-within { outline: 3px solid var(--sun); outline-offset: 2px; }
 
 .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(246,250,249,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
@@ -42,46 +42,62 @@ a:focus-visible, .btn:focus-visible, label:focus-within { outline: 3px solid var
 .hero h1 { font-size: var(--step-4); max-width: 18ch; }
 .hero p.lead { margin-top: 14px; color: rgba(255,255,255,.85); max-width: 56ch; font-size: 1.05rem; }
 
-.step { border-top: 1px solid var(--line); padding-top: 28px; margin-top: 28px; }
-.step:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
-.step .k { font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: var(--lagoon); font-weight: 600; }
-.step h2 { font-size: 1.5rem; margin-top: 4px; }
+.trail { display: flex; gap: 8px; margin-top: 24px; list-style: none; padding: 0; flex-wrap: wrap; }
+.trail li { font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.55); display: flex; align-items: center; gap: 8px; }
+.trail li.on { color: #fff; }
+.trail li .n { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.4); display: inline-flex; align-items: center; justify-content: center; font-size: .76rem; }
+.trail li.on .n { border-color: #fff; background: rgba(255,255,255,.15); }
+.trail li.done .n { background: var(--sun); border-color: var(--sun); color: var(--lagoon-deep); }
 
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
-@media (max-width: 680px) { .cards { grid-template-columns: 1fr; } }
-.cards.plan3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-@media (max-width: 760px) { .cards.plan3 { grid-template-columns: 1fr; } }
+.panel { max-width: 760px; margin: 0 auto; }
+.panel[hidden] { display: none; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 28px clamp(20px, 4vw, 34px); }
+.card h2 { font-size: 1.5rem; color: var(--lagoon-deep); }
+.card .sub { color: var(--ink-soft); margin-top: 8px; font-size: .96rem; }
+.conf { background: #FBEFD6; color: #7A5410; font-weight: 600; padding: 10px 16px; border-radius: 10px; font-size: .88rem; display: inline-block; margin-top: 12px; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+@media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+.field { margin-top: 16px; }
+.grid2 .field { margin-top: 0; }
+.field label { display: block; font-size: .92rem; font-weight: 600; margin-bottom: 6px; }
+.field .opt { font-weight: 500; font-size: .78rem; color: var(--ink-soft); margin-left: 4px; }
+.field input, .field textarea, .field select { font: inherit; font-size: .98rem; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--foam); color: var(--ink); width: 100%; }
+.field textarea { resize: vertical; }
+.field input:focus, .field textarea:focus, .field select:focus { outline: 2px solid var(--lagoon); outline-offset: 1px; }
+fieldset.field { border: 0; padding: 0; margin-top: 16px; }
+fieldset.field legend { font-size: .92rem; font-weight: 600; margin-bottom: 8px; padding: 0; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; }
+.seg label { display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid var(--line); border-radius: 999px; padding: 9px 16px; font-size: .92rem; font-weight: 500; cursor: pointer; background: var(--white); }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg input:checked + span { font-weight: 600; }
+.seg label:has(input:checked) { border-color: var(--lagoon); background: var(--shallows); }
+
+.err { color: #a3352a; font-size: .9rem; margin-top: 14px; min-height: 0; }
+.err:empty { display: none; }
+.actions { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; gap: 12px; }
+
 .pick { position: relative; }
 .pick input { position: absolute; opacity: 0; pointer-events: none; }
-.pick label { display: block; cursor: pointer; background: var(--white); border: 1.5px solid var(--line); border-radius: 16px; padding: 18px 20px; height: 100%; }
+.pick label { display: block; cursor: pointer; background: var(--white); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px 18px; height: 100%; }
 .pick input:checked + label { border-color: var(--lagoon); box-shadow: 0 0 0 1.5px var(--lagoon) inset; background: var(--shallows); }
-.pick label:hover { border-color: var(--lagoon); }
-.pick .t { font-weight: 600; font-size: 1.05rem; }
-.pick .price { font-family: var(--display); font-size: 1.5rem; color: var(--lagoon-deep); margin-top: 4px; }
-.pick .d { color: var(--ink-soft); font-size: .9rem; margin-top: 6px; }
+.pick .t { font-weight: 600; font-size: 1.02rem; }
+.pick .price { font-family: var(--display); font-size: 1.35rem; color: var(--lagoon-deep); margin-top: 4px; }
+.pick .d { color: var(--ink-soft); font-size: .88rem; margin-top: 6px; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
+.cards.plan3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 680px) { .cards, .cards.plan3 { grid-template-columns: 1fr; } }
 
-.roommate { margin-top: 18px; max-width: 420px; }
-.roommate[hidden] { display: none; }
-.roommate label { font-weight: 600; font-size: .92rem; display: block; margin-bottom: 6px; }
-.roommate input { font: inherit; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); color: var(--ink); width: 100%; }
-.roommate .hint { font-size: .85rem; color: var(--ink-soft); margin-top: 6px; }
-
-.agree { display: flex; gap: 10px; align-items: flex-start; background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin-top: 28px; }
-.agree input { margin-top: 4px; }
-
-.summary { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 24px 26px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 18px); }
-.summary .k { font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: var(--lagoon); font-weight: 600; }
-.summary .due { font-family: var(--display); font-size: 2.4rem; color: var(--lagoon-deep); line-height: 1; margin-top: 6px; }
-.summary .rows { margin-top: 14px; border-top: 1px solid var(--line); }
-.summary .row { display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .93rem; }
+.summary { background: var(--foam); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-top: 20px; }
+.summary .row { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; font-size: .93rem; }
 .summary .row span:first-child { color: var(--ink-soft); }
-.summary .fine { font-size: .82rem; color: var(--ink-soft); margin-top: 14px; }
-.summary .btn { width: 100%; margin-top: 18px; }
+.summary .due { font-family: var(--display); font-size: 1.9rem; color: var(--lagoon-deep); margin-top: 4px; }
 
-.layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 36px; align-items: start; margin-top: 8px; }
-@media (max-width: 860px) { .layout { grid-template-columns: 1fr; } .summary { position: static; margin-top: 8px; } }
+.agree { display: flex; gap: 10px; align-items: flex-start; background: var(--foam); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin-top: 22px; }
+.agree input { margin-top: 4px; }
+.priv { font-size: .86rem; color: var(--ink-soft); margin-top: 14px; }
 
-footer { border-top: 1px solid var(--line); padding-block: 28px; }
+footer { border-top: 1px solid var(--line); padding-block: 28px; margin-top: 10px; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; font-size: .9rem; color: var(--ink-soft); }
 </style>
 </head>
@@ -97,89 +113,140 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <div class="wrap band">
     <p class="eyebrow" style="color:#BFE3E4">Reserve your spot</p>
     <h1>Hold your place on Gili Air.</h1>
-    <p class="lead">Seven nights, June 16 to 23, 2027. Choose your room and how you'd like to pay, and you'll be sent straight to a secure Stripe checkout for exactly that.</p>
+    <p class="lead">Four short steps, then straight to secure checkout. Nothing here commits you until you pay.</p>
+    <ul class="trail" id="trail">
+      <li data-step="1" class="on"><span class="n">1</span> Your info</li>
+      <li data-step="2"><span class="n">2</span> Health &amp; safety</li>
+      <li data-step="3"><span class="n">3</span> Agreement</li>
+      <li data-step="4"><span class="n">4</span> Room &amp; payment</li>
+    </ul>
   </div>
 </header>
 
 <main class="wrap band">
-  <div class="layout">
-    <div>
-      <div class="step" id="room-step">
-        <p class="k">Step 1</p>
-        <h2>Choose your room</h2>
-        <div class="cards" role="radiogroup" aria-label="Room">
-          <div class="pick">
-            <input type="radio" name="room" id="room-shared" value="shared">
-            <label for="room-shared">
-              <div class="t">Shared bungalow</div>
-              <div class="price">$2,200<span style="font-family:var(--body);font-size:.85rem;color:var(--ink-soft)"> / person</span></div>
-              <div class="d">Share with a friend, a partner, or another guest we'll thoughtfully pair you with.</div>
-            </label>
-          </div>
-          <div class="pick">
-            <input type="radio" name="room" id="room-private" value="private" checked>
-            <label for="room-private">
-              <div class="t">Private bungalow</div>
-              <div class="price">$2,900<span style="font-family:var(--body);font-size:.85rem;color:var(--ink-soft)"> / just you</span></div>
-              <div class="d">A room that's all yours, your own quiet, your own schedule.</div>
-            </label>
-          </div>
-        </div>
+  <form id="booking-form" novalidate>
 
-        <div class="roommate" id="roommate-wrap" hidden>
-          <label for="roommate-name">Who are you sharing with?</label>
-          <input type="text" id="roommate-name" placeholder="Their name, or leave blank if you're not sure yet">
-          <p class="hint">If you don't know yet, leave this blank, we'll follow up to help pair you with someone.</p>
-        </div>
+  <section class="panel" data-panel="1">
+    <div class="card">
+      <h2>A few details about you</h2>
+      <p class="sub">So Jess and Aleisha know who's coming, and can reach you.</p>
+      <div class="grid2">
+        <div class="field"><label for="first">First name <span class="opt">required</span></label><input id="first" name="first" autocomplete="given-name" required></div>
+        <div class="field"><label for="last">Last name <span class="opt">required</span></label><input id="last" name="last" autocomplete="family-name" required></div>
       </div>
-
-      <div class="step" id="plan-step">
-        <p class="k">Step 2</p>
-        <h2>How do you want to pay?</h2>
-        <p style="color:var(--ink-soft);margin-top:4px">A $500 deposit holds your room on the three payment plan. Paying in full or with financing covers the whole room in one step.</p>
-        <div class="cards plan3" role="radiogroup" aria-label="Payment plan">
-          <div class="pick">
-            <input type="radio" name="plan" id="plan-full" value="full" checked>
-            <label for="plan-full">
-              <div class="t">Pay in full</div>
-              <div class="d">Save $200, settle the balance now, one and done.</div>
-            </label>
-          </div>
-          <div class="pick">
-            <input type="radio" name="plan" id="plan-3pay" value="three">
-            <label for="plan-3pay">
-              <div class="t">3 payments</div>
-              <div class="d">$500 deposit today, then Jess sends the remaining two invoices.</div>
-            </label>
-          </div>
-          <div class="pick">
-            <input type="radio" name="plan" id="plan-finance" value="finance">
-            <label for="plan-finance">
-              <div class="t">Buy now, pay later</div>
-              <div class="d">Choose Affirm, Klarna, or Afterpay at checkout and pay it back on their terms.</div>
-            </label>
-          </div>
-        </div>
+      <div class="grid2">
+        <div class="field"><label for="email">Email <span class="opt">required</span></label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="phone">Phone <span class="opt">required</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="With country code" required></div>
       </div>
+      <div class="field"><label for="preferred">Preferred name <span class="opt">optional</span></label><input id="preferred" name="preferred" placeholder="If different from your first name"></div>
+      <div class="grid2">
+        <div class="field"><label for="ec_name">Emergency contact name <span class="opt">required</span></label><input id="ec_name" name="ec_name" required></div>
+        <div class="field"><label for="ec_phone">Emergency contact phone <span class="opt">required</span></label><input id="ec_phone" name="ec_phone" type="tel" required></div>
+      </div>
+      <div class="field"><label for="ec_rel">Their relationship to you <span class="opt">optional</span></label><input id="ec_rel" name="ec_rel"></div>
+      <div class="field"><label for="dietary">Dietary needs or restrictions <span class="opt">optional</span></label><input id="dietary" name="dietary"></div>
+      <div class="field"><label for="heard">How did you hear about Xhale? <span class="opt">optional</span></label><select id="heard" name="heard"><option value="">Choose one</option><option>Jess or Jess Breathe &amp; Flow</option><option>Aleisha or Build the Balance</option><option>A friend</option><option>Instagram</option><option>LinkedIn</option><option>Somewhere else</option></select></div>
+      <div class="field"><label for="notes">Anything you want Jess and Aleisha to know as you say yes? <span class="opt">optional</span></label><textarea id="notes" name="notes" rows="2"></textarea></div>
+      <p class="err" id="err-1" role="alert"></p>
+      <div class="actions"><span></span><button type="button" class="btn" data-next>Continue</button></div>
+    </div>
+  </section>
 
+  <section class="panel" data-panel="2" hidden>
+    <div class="card">
+      <h2>Health &amp; safety</h2>
+      <p class="sub">This keeps you safe and cared for during the week.</p>
+      <p class="conf">Confidential. Only Jess and Aleisha see this, kept separate from your booking, and deleted within 12 months after the retreat unless you ask us to keep it.</p>
+      <div class="field"><label for="dob">Date of birth <span class="opt">required</span></label><input id="dob" name="dob" type="date" required></div>
+      <div class="field"><label for="conditions">Any medical conditions we should know about <span class="opt">optional</span></label><textarea id="conditions" name="conditions" rows="2"></textarea></div>
+      <div class="field"><label for="meds">Medications you take regularly <span class="opt">optional</span></label><textarea id="meds" name="meds" rows="2"></textarea></div>
+      <div class="field"><label for="allergies">Allergies, food, medication, or environmental <span class="opt">optional</span></label><textarea id="allergies" name="allergies" rows="2"></textarea></div>
+      <div class="field"><label for="limits">Injuries, surgeries, or physical limitations that affect movement or activities <span class="opt">optional</span></label><textarea id="limits" name="limits" rows="2"></textarea></div>
+      <fieldset class="field"><legend>Pregnant, or is there a chance you may be? <span class="opt">optional</span></legend>
+        <div class="seg">
+          <label><input type="radio" name="pregnant" value="no" checked><span>No</span></label>
+          <label><input type="radio" name="pregnant" value="yes"><span>Yes</span></label>
+          <label><input type="radio" name="pregnant" value="skip"><span>Prefer not to say</span></label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="swim">Comfort and ability in water and swimming <span class="opt">optional</span></label><input id="swim" name="swim" placeholder="For the snorkeling and island hopping day"></div>
+      <div class="field"><label for="emotional">Anything emotional or mental health related you'd like us to be aware of, so we can hold you well <span class="opt">optional</span></label><textarea id="emotional" name="emotional" rows="2"></textarea></div>
+      <div class="field"><label for="access">Accessibility needs, rooming, mobility, sensory, or other <span class="opt">optional</span></label><textarea id="access" name="access" rows="2"></textarea></div>
+      <fieldset class="field"><legend>Travel insurance for this trip <span class="opt">strongly recommended</span></legend>
+        <div class="seg">
+          <label><input type="radio" name="insurance" value="yes" checked><span>Yes, I have a policy</span></label>
+          <label><input type="radio" name="insurance" value="not_yet"><span>Not yet</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="field"><legend>May we use photos or video that include you in Xhale and Jess Breathe &amp; Flow marketing? <span class="opt">optional, your answer does not affect your experience</span></legend>
+        <div class="seg">
+          <label><input type="radio" name="photo" value="yes" checked><span>Yes</span></label>
+          <label><input type="radio" name="photo" value="no"><span>No</span></label>
+        </div>
+      </fieldset>
+      <p class="err" id="err-2" role="alert"></p>
+      <div class="actions"><button type="button" class="btn ghost" data-back>Back</button><button type="button" class="btn" data-next>Continue</button></div>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="3" hidden>
+    <div class="card">
+      <h2>Review &amp; agree</h2>
+      <p class="sub">Please read the full agreement, it covers deposits, cancellations, and the risks of travel and retreat activities.</p>
       <label class="agree">
-        <input type="checkbox" id="agree-waiver">
+        <input type="checkbox" id="agree-waiver" name="agree_waiver">
         <span>I've read and agree to the <a href="waiver.html" target="_blank" rel="noopener">Xhale Participant Agreement &amp; Waiver</a> and the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>, and I understand my deposit is non refundable.</span>
       </label>
+      <p class="err" id="err-3" role="alert"></p>
+      <div class="actions"><button type="button" class="btn ghost" data-back>Back</button><button type="button" class="btn" data-next>Continue</button></div>
     </div>
+  </section>
 
-    <aside class="summary">
-      <p class="k" id="sum-label">Due today</p>
-      <div class="due" id="sum-due">$500</div>
-      <div class="rows">
+  <section class="panel" data-panel="4" hidden>
+    <div class="card">
+      <h2>Room &amp; payment</h2>
+      <p class="sub">Pick your room and how you'd like to pay. The last step sends you to a secure Stripe checkout for exactly that.</p>
+      <div class="cards" role="radiogroup" aria-label="Room">
+        <div class="pick">
+          <input type="radio" name="room" id="room-shared" value="shared">
+          <label for="room-shared"><div class="t">Shared bungalow</div><div class="price">$2,200<span style="font-family:var(--body);font-size:.8rem;color:var(--ink-soft)"> / person</span></div><div class="d">Share with a friend, a partner, or another guest we'll thoughtfully pair you with.</div></label>
+        </div>
+        <div class="pick">
+          <input type="radio" name="room" id="room-private" value="private" checked>
+          <label for="room-private"><div class="t">Private bungalow</div><div class="price">$2,900<span style="font-family:var(--body);font-size:.8rem;color:var(--ink-soft)"> / just you</span></div><div class="d">A room that's all yours, your own quiet, your own schedule.</div></label>
+        </div>
+      </div>
+      <div class="field" id="roommate-wrap" hidden><label for="roommate">Who are you sharing with? <span class="opt">optional</span></label><input id="roommate" name="roommate" placeholder="Their name, or leave blank if you're not sure yet"></div>
+
+      <div class="cards plan3" role="radiogroup" aria-label="Payment plan" style="margin-top:28px">
+        <div class="pick">
+          <input type="radio" name="plan" id="plan-full" value="full" checked>
+          <label for="plan-full"><div class="t">Pay in full</div><div class="d">Save $200, settle the balance now.</div></label>
+        </div>
+        <div class="pick">
+          <input type="radio" name="plan" id="plan-3pay" value="three">
+          <label for="plan-3pay"><div class="t">3 payments</div><div class="d">$500 deposit today, Jess sends the other two invoices.</div></label>
+        </div>
+        <div class="pick">
+          <input type="radio" name="plan" id="plan-finance" value="finance">
+          <label for="plan-finance"><div class="t">Buy now, pay later</div><div class="d">Affirm, Klarna, or Afterpay at checkout.</div></label>
+        </div>
+      </div>
+
+      <div class="summary">
         <div class="row"><span>Room</span><span id="sum-room">Private bungalow</span></div>
         <div class="row"><span>Room total</span><span id="sum-roomtotal">$2,900</span></div>
         <div class="row"><span>Paying</span><span id="sum-plan">In full</span></div>
+        <p class="due" id="sum-due">$2,700</p>
+        <p class="sub" id="sum-fine" style="margin-top:4px">Paid in full today, $200 already taken off.</p>
       </div>
-      <p class="fine" id="sum-fine">Your deposit is non refundable and holds your room. We'll reach out about the rest of your balance right after you book.</p>
-      <button class="btn" id="go-btn" type="button" disabled>Continue to secure payment</button>
-    </aside>
-  </div>
+      <p class="priv">Stripe emails you a receipt the moment you pay, with the exact amount charged. If you choose the three payment plan, Jess sends your next two invoices by email as they come due, and Stripe reminds you automatically if one goes unpaid near its due date. We'll also send a welcome email with everything else you need.</p>
+      <p class="err" id="err-4" role="alert"></p>
+      <div class="actions"><button type="button" class="btn ghost" data-back>Back</button><button type="button" class="btn" id="go-btn">Continue to secure payment</button></div>
+    </div>
+  </section>
+
+  </form>
 </main>
 
 <footer>
@@ -190,12 +257,16 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 </footer>
 
 <script>
+// Paste the Google Apps Script web app URL here (same pattern as join.html) to send
+// registration + health answers to the guest tracker and the private health sheet,
+// and to add the guest to Flodesk's "Booked" segment. Leave blank to skip saving
+// and go straight to Stripe (useful for testing).
+var SHEET_URL = '';
+
 (function(){
   var PRICE = { shared: 2200, private: 2900 };
   var PIF_PRICE = { shared: 2000, private: 2700 };
   var DEPOSIT = 500;
-
-  // Jess's live Stripe Payment Links, one per room + payment choice.
   var LINKS = {
     'shared|full': 'https://buy.stripe.com/dRm9AS2UmbHd9qZ1je2Fa01',
     'private|full': 'https://buy.stripe.com/14AfZggLcbHd8mV2ni2Fa02',
@@ -205,44 +276,89 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     'private|three': 'https://buy.stripe.com/9B6fZg7aC5iP5aJd1W2Fa05'
   };
 
-  function val(name){ var el = document.querySelector('input[name="'+name+'"]:checked'); return el ? el.value : null; }
+  var form = document.getElementById('booking-form');
+  var panels = [].slice.call(document.querySelectorAll('.panel'));
+  var trail = [].slice.call(document.querySelectorAll('#trail li'));
+  var step = 1;
+
+  function showStep(n){
+    step = n;
+    panels.forEach(function(p){ p.hidden = (+p.getAttribute('data-panel') !== n); });
+    trail.forEach(function(li){
+      var s = +li.getAttribute('data-step');
+      li.classList.toggle('on', s === n);
+      li.classList.toggle('done', s < n);
+    });
+    window.scrollTo({ top: document.querySelector('.panel:not([hidden])').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function val(name){ var el = form.querySelector('[name="'+name+'"]:checked'); return el ? el.value : (form.elements[name] ? form.elements[name].value : null); }
+  function field(name){ return form.elements[name]; }
+
+  function validateStep1(){
+    var req = ['first','last','ec_name','ec_phone'];
+    for (var i=0;i<req.length;i++){ if(!field(req[i]).value.trim()){ document.getElementById('err-1').textContent = 'Please fill in every required field before continuing.'; field(req[i]).focus(); return false; } }
+    var email = field('email').value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ document.getElementById('err-1').textContent = 'Please add a valid email so we can reach you.'; field('email').focus(); return false; }
+    if(!field('phone').value.trim()){ document.getElementById('err-1').textContent = 'Please add a phone number.'; field('phone').focus(); return false; }
+    document.getElementById('err-1').textContent = '';
+    return true;
+  }
+  function validateStep2(){
+    if(!field('dob').value){ document.getElementById('err-2').textContent = 'Please add your date of birth.'; field('dob').focus(); return false; }
+    document.getElementById('err-2').textContent = '';
+    return true;
+  }
+  function validateStep3(){
+    if(!document.getElementById('agree-waiver').checked){ document.getElementById('err-3').textContent = 'Please agree to the participant agreement and waiver to continue.'; return false; }
+    document.getElementById('err-3').textContent = '';
+    return true;
+  }
+
+  var VALIDATORS = { 1: validateStep1, 2: validateStep2, 3: validateStep3 };
+
+  [].forEach.call(document.querySelectorAll('[data-next]'), function(btn){
+    btn.addEventListener('click', function(){
+      var v = VALIDATORS[step];
+      if (v && !v()) return;
+      showStep(step + 1);
+    });
+  });
+  [].forEach.call(document.querySelectorAll('[data-back]'), function(btn){
+    btn.addEventListener('click', function(){ showStep(step - 1); });
+  });
+
   function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
   function planLabel(p){ return p === 'full' ? 'In full' : p === 'three' ? '3 payments' : 'Buy now, pay later'; }
 
-  function render(){
+  function renderRoomStep(){
     var room = val('room'), plan = val('plan');
     document.getElementById('roommate-wrap').hidden = room !== 'shared';
     document.getElementById('sum-room').textContent = room === 'shared' ? 'Shared bungalow' : 'Private bungalow';
     document.getElementById('sum-roomtotal').textContent = money(PRICE[room]);
     document.getElementById('sum-plan').textContent = planLabel(plan);
-
-    var due, fine, label;
-    if (plan === 'full') { due = PIF_PRICE[room]; label = 'Due today'; fine = 'Paid in full today, $200 already taken off. You\'ll get a receipt by email right away.'; }
-    else if (plan === 'three') { due = DEPOSIT; label = 'Due today'; fine = 'Your $500 deposit holds your room. Jess will send your next two invoices by email as they come due.'; }
-    else { due = PRICE[room]; label = 'Charged today'; fine = 'Choose Affirm, Klarna, or Afterpay at checkout. We get paid in full today, you pay them back on their terms.'; }
+    var due, fine;
+    if (plan === 'full') { due = PIF_PRICE[room]; fine = 'Paid in full today, $200 already taken off. You\'ll get a receipt by email right away.'; }
+    else if (plan === 'three') { due = DEPOSIT; fine = 'Your $500 deposit holds your room. Jess will send your next two invoices by email as they come due.'; }
+    else { due = PRICE[room]; fine = 'Choose Affirm, Klarna, or Afterpay at checkout. We get paid in full today, you pay them back on their terms.'; }
     document.getElementById('sum-due').textContent = money(due);
-    document.getElementById('sum-label').textContent = label;
     document.getElementById('sum-fine').textContent = fine;
-
-    updateGoBtn();
   }
-
-  function updateGoBtn(){
-    var agreed = document.getElementById('agree-waiver').checked;
-    document.getElementById('go-btn').disabled = !agreed;
-  }
-
-  [].forEach.call(document.querySelectorAll('input[name="room"], input[name="plan"]'), function(el){
-    el.addEventListener('change', render);
-  });
-  document.getElementById('agree-waiver').addEventListener('change', updateGoBtn);
-  render();
+  [].forEach.call(document.querySelectorAll('input[name="room"], input[name="plan"]'), function(el){ el.addEventListener('change', renderRoomStep); });
+  renderRoomStep();
 
   document.getElementById('go-btn').addEventListener('click', function(){
-    if (document.getElementById('go-btn').disabled) return;
     var room = val('room'), plan = val('plan');
     var link = LINKS[room + '|' + plan];
-    if (!link) { alert('Something went wrong picking your link, please email info@jessbreatheandflow.com and we\'ll sort it out.'); return; }
+    if (!link) { document.getElementById('err-4').textContent = 'Something went wrong picking your checkout link, please email info@jessbreatheandflow.com and we\'ll sort it out.'; return; }
+
+    var data = {};
+    new FormData(form).forEach(function(v,k){ data[k]=v; });
+    data.type = 'booking';
+
+    if (SHEET_URL) {
+      try { fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) }); } catch (x) {}
+    }
     window.location.href = link;
   });
 })();
