@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reserve your spot · Xhale</title>
+<meta name="description" content="Reserve your spot for Xhale: seven nights on Gili Air, Indonesia, June 16 to 23, 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Marcellus&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root {
+  --ink: #0F2A33; --ink-soft: #3E5A63; --lagoon: #0E5F70; --lagoon-deep: #08414D;
+  --shallows: #CFE7E6; --foam: #F6FAF9; --sand: #EADFCB; --sun: #E8B86A; --line: #D6E3E2; --white: #FFFFFF;
+  --display: "Marcellus", "Cormorant Garamond", Georgia, serif;
+  --body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+  --step-0: 1.0625rem; --step-2: 1.6rem; --step-3: 2.2rem; --step-4: clamp(2.2rem, 5.5vw, 3.6rem);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--foam); color: var(--ink); font-family: var(--body); font-size: var(--step-0); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.12; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--lagoon); }
+.wrap { max-width: 1000px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.narrow { max-width: 680px; }
+.band { padding-block: clamp(40px, 7vw, 76px); }
+.eyebrow { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--lagoon); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; border-radius: 999px; background: var(--lagoon); color: var(--white); text-decoration: none; font-weight: 600; font-size: .98rem; border: 1.5px solid var(--lagoon); cursor: pointer; transition: background .2s; }
+.btn:hover { background: var(--lagoon-deep); }
+.btn[disabled] { opacity: .5; cursor: not-allowed; }
+a:focus-visible, .btn:focus-visible, label:focus-within { outline: 3px solid var(--sun); outline-offset: 2px; }
+
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(246,250,249,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.mark { font-family: var(--display); font-size: 1.7rem; letter-spacing: .32em; color: var(--ink); text-decoration: none; padding-left: .32em; }
+.nav .back { color: var(--ink-soft); text-decoration: none; font-size: .92rem; font-weight: 600; }
+.nav .back:hover { color: var(--lagoon); }
+
+.hero { background: var(--lagoon-deep); color: var(--white); text-align: left; }
+.hero h1 { font-size: var(--step-4); max-width: 18ch; }
+.hero p.lead { margin-top: 14px; color: rgba(255,255,255,.85); max-width: 56ch; font-size: 1.05rem; }
+
+.step { border-top: 1px solid var(--line); padding-top: 28px; margin-top: 28px; }
+.step:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+.step .k { font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: var(--lagoon); font-weight: 600; }
+.step h2 { font-size: 1.5rem; margin-top: 4px; }
+
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+@media (max-width: 680px) { .cards { grid-template-columns: 1fr; } }
+.cards.plan3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { .cards.plan3 { grid-template-columns: 1fr; } }
+.pick { position: relative; }
+.pick input { position: absolute; opacity: 0; pointer-events: none; }
+.pick label { display: block; cursor: pointer; background: var(--white); border: 1.5px solid var(--line); border-radius: 16px; padding: 18px 20px; height: 100%; }
+.pick input:checked + label { border-color: var(--lagoon); box-shadow: 0 0 0 1.5px var(--lagoon) inset; background: var(--shallows); }
+.pick label:hover { border-color: var(--lagoon); }
+.pick .t { font-weight: 600; font-size: 1.05rem; }
+.pick .price { font-family: var(--display); font-size: 1.5rem; color: var(--lagoon-deep); margin-top: 4px; }
+.pick .d { color: var(--ink-soft); font-size: .9rem; margin-top: 6px; }
+
+.roommate { margin-top: 18px; max-width: 420px; }
+.roommate[hidden] { display: none; }
+.roommate label { font-weight: 600; font-size: .92rem; display: block; margin-bottom: 6px; }
+.roommate input { font: inherit; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); color: var(--ink); width: 100%; }
+.roommate .hint { font-size: .85rem; color: var(--ink-soft); margin-top: 6px; }
+
+.agree { display: flex; gap: 10px; align-items: flex-start; background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin-top: 28px; }
+.agree input { margin-top: 4px; }
+
+.summary { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 24px 26px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 18px); }
+.summary .k { font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: var(--lagoon); font-weight: 600; }
+.summary .due { font-family: var(--display); font-size: 2.4rem; color: var(--lagoon-deep); line-height: 1; margin-top: 6px; }
+.summary .rows { margin-top: 14px; border-top: 1px solid var(--line); }
+.summary .row { display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .93rem; }
+.summary .row span:first-child { color: var(--ink-soft); }
+.summary .fine { font-size: .82rem; color: var(--ink-soft); margin-top: 14px; }
+.summary .btn { width: 100%; margin-top: 18px; }
+
+.layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 36px; align-items: start; margin-top: 8px; }
+@media (max-width: 860px) { .layout { grid-template-columns: 1fr; } .summary { position: static; margin-top: 8px; } }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; font-size: .9rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="index.html" aria-label="Xhale home">XHALE</a>
+    <a class="back" href="plan.html">&larr; Back to rooms &amp; pricing</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap band">
+    <p class="eyebrow" style="color:#BFE3E4">Reserve your spot</p>
+    <h1>Hold your place on Gili Air.</h1>
+    <p class="lead">Seven nights, June 16 to 23, 2027. Choose your room and how you'd like to pay, and you'll be sent straight to a secure Stripe checkout for exactly that.</p>
+  </div>
+</header>
+
+<main class="wrap band">
+  <div class="layout">
+    <div>
+      <div class="step" id="room-step">
+        <p class="k">Step 1</p>
+        <h2>Choose your room</h2>
+        <div class="cards" role="radiogroup" aria-label="Room">
+          <div class="pick">
+            <input type="radio" name="room" id="room-shared" value="shared">
+            <label for="room-shared">
+              <div class="t">Shared bungalow</div>
+              <div class="price">$2,200<span style="font-family:var(--body);font-size:.85rem;color:var(--ink-soft)"> / person</span></div>
+              <div class="d">Share with a friend, a partner, or another guest we'll thoughtfully pair you with.</div>
+            </label>
+          </div>
+          <div class="pick">
+            <input type="radio" name="room" id="room-private" value="private" checked>
+            <label for="room-private">
+              <div class="t">Private bungalow</div>
+              <div class="price">$2,900<span style="font-family:var(--body);font-size:.85rem;color:var(--ink-soft)"> / just you</span></div>
+              <div class="d">A room that's all yours, your own quiet, your own schedule.</div>
+            </label>
+          </div>
+        </div>
+
+        <div class="roommate" id="roommate-wrap" hidden>
+          <label for="roommate-name">Who are you sharing with?</label>
+          <input type="text" id="roommate-name" placeholder="Their name, or leave blank if you're not sure yet">
+          <p class="hint">If you don't know yet, leave this blank, we'll follow up to help pair you with someone.</p>
+        </div>
+      </div>
+
+      <div class="step" id="plan-step">
+        <p class="k">Step 2</p>
+        <h2>How do you want to pay?</h2>
+        <p style="color:var(--ink-soft);margin-top:4px">A $500 deposit holds your room on the three payment plan. Paying in full or with financing covers the whole room in one step.</p>
+        <div class="cards plan3" role="radiogroup" aria-label="Payment plan">
+          <div class="pick">
+            <input type="radio" name="plan" id="plan-full" value="full" checked>
+            <label for="plan-full">
+              <div class="t">Pay in full</div>
+              <div class="d">Save $200, settle the balance now, one and done.</div>
+            </label>
+          </div>
+          <div class="pick">
+            <input type="radio" name="plan" id="plan-3pay" value="three">
+            <label for="plan-3pay">
+              <div class="t">3 payments</div>
+              <div class="d">$500 deposit today, then Jess sends the remaining two invoices.</div>
+            </label>
+          </div>
+          <div class="pick">
+            <input type="radio" name="plan" id="plan-finance" value="finance">
+            <label for="plan-finance">
+              <div class="t">Buy now, pay later</div>
+              <div class="d">Choose Affirm, Klarna, or Afterpay at checkout and pay it back on their terms.</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <label class="agree">
+        <input type="checkbox" id="agree-waiver">
+        <span>I've read and agree to the <a href="waiver.html" target="_blank" rel="noopener">Xhale Participant Agreement &amp; Waiver</a> and the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>, and I understand my deposit is non refundable.</span>
+      </label>
+    </div>
+
+    <aside class="summary">
+      <p class="k" id="sum-label">Due today</p>
+      <div class="due" id="sum-due">$500</div>
+      <div class="rows">
+        <div class="row"><span>Room</span><span id="sum-room">Private bungalow</span></div>
+        <div class="row"><span>Room total</span><span id="sum-roomtotal">$2,900</span></div>
+        <div class="row"><span>Paying</span><span id="sum-plan">In full</span></div>
+      </div>
+      <p class="fine" id="sum-fine">Your deposit is non refundable and holds your room. We'll reach out about the rest of your balance right after you book.</p>
+      <button class="btn" id="go-btn" type="button" disabled>Continue to secure payment</button>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Brought to you by Jess Breathe &amp; Flow and Build the Balance</span>
+    <span>Questions? Write to <a href="mailto:info@jessbreatheandflow.com">info@jessbreatheandflow.com</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var PRICE = { shared: 2200, private: 2900 };
+  var PIF_PRICE = { shared: 2000, private: 2700 };
+  var DEPOSIT = 500;
+
+  // Jess's live Stripe Payment Links, one per room + payment choice.
+  var LINKS = {
+    'shared|full': 'https://buy.stripe.com/dRm9AS2UmbHd9qZ1je2Fa01',
+    'private|full': 'https://buy.stripe.com/14AfZggLcbHd8mV2ni2Fa02',
+    'shared|finance': 'https://buy.stripe.com/0w6oG7aCbHd5aJge82Fa03',
+    'private|finance': 'https://buy.stripe.com/4gM8wOdz08v1av3e602Fa04',
+    'shared|three': 'https://buy.stripe.com/9B6fZg7aC5iP5aJd1W2Fa05',
+    'private|three': 'https://buy.stripe.com/9B6fZg7aC5iP5aJd1W2Fa05'
+  };
+
+  function val(name){ var el = document.querySelector('input[name="'+name+'"]:checked'); return el ? el.value : null; }
+  function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+  function planLabel(p){ return p === 'full' ? 'In full' : p === 'three' ? '3 payments' : 'Buy now, pay later'; }
+
+  function render(){
+    var room = val('room'), plan = val('plan');
+    document.getElementById('roommate-wrap').hidden = room !== 'shared';
+    document.getElementById('sum-room').textContent = room === 'shared' ? 'Shared bungalow' : 'Private bungalow';
+    document.getElementById('sum-roomtotal').textContent = money(PRICE[room]);
+    document.getElementById('sum-plan').textContent = planLabel(plan);
+
+    var due, fine, label;
+    if (plan === 'full') { due = PIF_PRICE[room]; label = 'Due today'; fine = 'Paid in full today, $200 already taken off. You\'ll get a receipt by email right away.'; }
+    else if (plan === 'three') { due = DEPOSIT; label = 'Due today'; fine = 'Your $500 deposit holds your room. Jess will send your next two invoices by email as they come due.'; }
+    else { due = PRICE[room]; label = 'Charged today'; fine = 'Choose Affirm, Klarna, or Afterpay at checkout. We get paid in full today, you pay them back on their terms.'; }
+    document.getElementById('sum-due').textContent = money(due);
+    document.getElementById('sum-label').textContent = label;
+    document.getElementById('sum-fine').textContent = fine;
+
+    updateGoBtn();
+  }
+
+  function updateGoBtn(){
+    var agreed = document.getElementById('agree-waiver').checked;
+    document.getElementById('go-btn').disabled = !agreed;
+  }
+
+  [].forEach.call(document.querySelectorAll('input[name="room"], input[name="plan"]'), function(el){
+    el.addEventListener('change', render);
+  });
+  document.getElementById('agree-waiver').addEventListener('change', updateGoBtn);
+  render();
+
+  document.getElementById('go-btn').addEventListener('click', function(){
+    if (document.getElementById('go-btn').disabled) return;
+    var room = val('room'), plan = val('plan');
+    var link = LINKS[room + '|' + plan];
+    if (!link) { alert('Something went wrong picking your link, please email info@jessbreatheandflow.com and we\'ll sort it out.'); return; }
+    window.location.href = link;
+  });
+})();
+</script>
+</body>
+</html>

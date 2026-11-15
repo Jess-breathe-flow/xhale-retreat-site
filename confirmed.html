@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>You're in · Xhale</title>
+<meta name="description" content="Your Xhale booking is confirmed.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root {
+  --ink: #0F2A33; --ink-soft: #3E5A63; --lagoon: #0E5F70; --lagoon-deep: #08414D;
+  --shallows: #CFE7E6; --foam: #F6FAF9; --line: #D6E3E2; --white: #FFFFFF;
+  --display: "Marcellus", "Cormorant Garamond", Georgia, serif;
+  --body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--foam); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+h1, h2 { font-family: var(--display); font-weight: 400; line-height: 1.14; margin: 0; }
+a { color: var(--lagoon); }
+.wrap { width: min(640px, 92vw); margin: 0 auto; }
+.topbar { background: var(--lagoon-deep); color: #fff; }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+.topbar a.mark { font-family: var(--display); letter-spacing: .3em; font-size: 1.15rem; color: #fff; text-decoration: none; }
+main { padding: 64px 0 60px; text-align: center; }
+main .orb { width: 64px; height: 64px; border-radius: 50%; background: var(--shallows); margin: 0 auto 24px; }
+main h1 { font-size: clamp(2rem, 5vw, 2.6rem); color: var(--lagoon-deep); margin-bottom: 16px; }
+main p { margin: 0 0 16px; color: var(--ink-soft); }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 26px; margin: 28px 0; text-align: left; }
+.card h2 { font-size: 1.1rem; color: var(--lagoon-deep); margin-bottom: 10px; }
+.card ul { margin: 0; padding-left: 20px; }
+.card li { margin: 0 0 8px; }
+.btn { display: inline-block; margin-top: 10px; padding: 13px 26px; border-radius: 999px; background: var(--lagoon-deep); color: #fff; text-decoration: none; font-weight: 600; }
+footer { background: var(--lagoon-deep); color: rgba(255,255,255,.85); margin-top: 20px; }
+footer .wrap { padding: 30px 0; font-size: .92rem; text-align: center; }
+footer a { color: #fff; }
+</style></head>
+<body>
+
+<div class="topbar"><div class="wrap"><a class="mark" href="./">XHALE</a></div></div>
+
+<main>
+  <div class="wrap">
+    <div class="orb"></div>
+    <h1>You're in.</h1>
+    <p>Your payment went through, and your place at Xhale is confirmed. Breathe easy, the hard part is done.</p>
+
+    <div class="card">
+      <h2>What happens next</h2>
+      <ul>
+        <li>Stripe is sending you a receipt by email right now, with the amount charged today.</li>
+        <li>Jess and Aleisha are sending you a welcome email shortly, with your next steps and a short health and intake form to fill out before the retreat.</li>
+        <li>If you chose the three payment plan, Jess will send your next two invoices by email as they come due.</li>
+        <li>About three months before the retreat, you'll get access to an app with everything you need for the week in one place.</li>
+      </ul>
+    </div>
+
+    <p>Questions in the meantime? Reach out anytime, we're happy to help.</p>
+    <a class="btn" href="mailto:info@jessbreatheandflow.com">Email us</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Xhale &middot; Gili Air, Indonesia &middot; June 16 to 23, 2027</p>
+  </div>
+</footer>
+
+</body></html>

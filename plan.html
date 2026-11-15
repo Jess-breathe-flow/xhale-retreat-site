@@ -430,7 +430,8 @@ section[id] { scroll-margin-top: 128px; }
         <div class="q"><span class="ql" id="q-pay">How I'd pay for Xhale</span>
           <div class="seg" role="radiogroup" aria-labelledby="q-pay">
             <label><input type="radio" name="pay" value="three" checked><span>Deposit, then 3 payments</span></label>
-            <label><input type="radio" name="pay" value="full"><span>Deposit, then pay in full · save $200</span></label>
+            <label><input type="radio" name="pay" value="full"><span>Pay in full · save $200</span></label>
+            <label><input type="radio" name="pay" value="finance"><span>Buy now, pay later</span></label>
           </div>
         </div>
       </form>
@@ -442,6 +443,16 @@ section[id] { scroll-margin-top: 128px; }
         <p class="fine">Meals on your own depend on what's included, which we'll confirm when booking opens. Flights and extras are estimates.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="band white" id="reserve" aria-labelledby="reserve-h">
+  <div class="wrap">
+    <p class="eyebrow">Step six · Reserve your spot</p>
+    <h2 id="reserve-h">Ready to book?</h2>
+    <p class="lead">Confirm your room and how you'll pay on the booking page, agree to the participant agreement, and you'll be taken straight to secure checkout.</p>
+    <a id="book-btn" class="btn" href="book.html">Continue to booking</a>
+    <p class="hint" style="margin-top:14px">After you pay, you'll land on a confirmation page and get a receipt from Stripe, followed by a welcome email from us with your next steps, including a short health and intake form.</p>
   </div>
 </section>
 
@@ -498,15 +509,17 @@ section[id] { scroll-margin-top: 128px; }
   var custom = false;
   function monthsToGo() { var now = new Date(), go = new Date(2027, 5, 1); var m = (go.getFullYear() - now.getFullYear()) * 12 + (go.getMonth() - now.getMonth()); return Math.max(1, m); }
   function calc() {
-    var room = val('room'), payFull = val('pay') === 'full', retreat = PRICE[room] - (payFull ? PIF_DISCOUNT : 0), fare = Math.max(0, +$('c-fare').value || 0);
-    var lines = [['Xhale, ' + (room === 'shared' ? 'shared' : 'private') + ' bungalow' + (payFull ? ' (pay in full, $200 off)' : ''), retreat], ['Round trip flight', fare]];
+    var room = val('room'), pay = val('pay'), payFull = pay === 'full', retreat = PRICE[room] - (payFull ? PIF_DISCOUNT : 0), fare = Math.max(0, +$('c-fare').value || 0);
+    var tag = payFull ? ' (pay in full, $200 off)' : (pay === 'finance' ? ' (buy now, pay later)' : '');
+    var lines = [['Xhale, ' + (room === 'shared' ? 'shared' : 'private') + ' bungalow' + tag, retreat], ['Round trip flight', fare]];
     var total = retreat + fare;
     Object.keys(EXTRA).forEach(function (k) { if ($('c-' + k).checked) { var e = EXTRA[k]; lines.push([e[0], e[1]]); total += e[1] || 0; } });
     $('r-total').textContent = money(total);
     $('r-lines').innerHTML = lines.map(function (l) { return '<div><dt>' + l[0] + '</dt><dd>' + (l[1] === null ? 'Price coming' : money(l[1])) + '</dd></div>'; }).join('');
-    var bal = retreat - DEPOSIT, plan = !payFull
-      ? '<b>' + money(DEPOSIT) + '</b> to hold your room, then 3 payments of <b>' + money(bal / 3) + '</b> before the retreat.'
-      : '<b>' + money(DEPOSIT) + '</b> to hold your room, then <b>' + money(bal) + '</b> before the retreat, with your $200 pay in full discount already taken off.';
+    var bal = retreat - DEPOSIT, plan;
+    if (pay === 'three') plan = '<b>' + money(DEPOSIT) + '</b> to hold your room, then 3 payments of <b>' + money(bal / 3) + '</b> before the retreat.';
+    else if (pay === 'finance') plan = 'Pick Afterpay, Klarna, or Affirm at checkout for <b>' + money(retreat) + '</b>. We get paid in full upfront, you pay them back on their terms.';
+    else plan = '<b>' + money(DEPOSIT) + '</b> to hold your room, then <b>' + money(bal) + '</b> before the retreat, with your $200 pay in full discount already taken off.';
     var n = monthsToGo();
     $('r-split').innerHTML = '<span><b>Paying Xhale:</b> ' + plan + '</span><span><b>Saving for the whole trip:</b> about <b>' + money(total / n) + '</b> a month for the next ' + n + ' months gets you there, flights and all.</span>';
   }
