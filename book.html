@@ -225,7 +225,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </div>
         <div class="pick">
           <input type="radio" name="plan" id="plan-3pay" value="three">
-          <label for="plan-3pay"><div class="t">3 payments</div><div class="d">$500 deposit today, Jess sends the other two invoices.</div></label>
+          <label for="plan-3pay"><div class="t">3 payments</div><div class="d">$500 deposit today, Jess sends the other three invoices.</div></label>
         </div>
         <div class="pick">
           <input type="radio" name="plan" id="plan-finance" value="finance">
@@ -240,7 +240,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <p class="due" id="sum-due">$2,700</p>
         <p class="sub" id="sum-fine" style="margin-top:4px">Paid in full today, $200 already taken off.</p>
       </div>
-      <p class="priv">Stripe emails you a receipt the moment you pay, with the exact amount charged. If you choose the three payment plan, Jess sends your next two invoices by email as they come due, and Stripe reminds you automatically if one goes unpaid near its due date. We'll also send a welcome email with everything else you need.</p>
+      <p class="priv">Stripe emails you a receipt the moment you pay, with the exact amount charged. If you choose the three payment plan, Jess sends your next three invoices by email as they come due, and Stripe reminds you automatically if one goes unpaid near its due date. We'll also send a welcome email with everything else you need.</p>
       <p class="err" id="err-4" role="alert"></p>
       <div class="actions"><button type="button" class="btn ghost" data-back>Back</button><button type="button" class="btn" id="go-btn">Continue to secure payment</button></div>
     </div>
@@ -339,7 +339,7 @@ var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzxogl1iDPc-QyrJC0bXKRf
     document.getElementById('sum-plan').textContent = planLabel(plan);
     var due, fine;
     if (plan === 'full') { due = PIF_PRICE[room]; fine = 'Paid in full today, $200 already taken off. You\'ll get a receipt by email right away.'; }
-    else if (plan === 'three') { due = DEPOSIT; fine = 'Your $500 deposit holds your room. Jess will send your next two invoices by email as they come due.'; }
+    else if (plan === 'three') { due = DEPOSIT; fine = 'Your $500 deposit holds your room. Jess will send your next three invoices by email as they come due.'; }
     else { due = PRICE[room]; fine = 'Choose Affirm, Klarna, or Afterpay at checkout. We get paid in full today, you pay them back on their terms.'; }
     document.getElementById('sum-due').textContent = money(due);
     document.getElementById('sum-fine').textContent = fine;
